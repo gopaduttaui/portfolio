@@ -10,21 +10,74 @@
   <meta name="keywords" content="Gopa Dutta, graphic design, motion designer, brand architecture, UI designer, 2D animation, after effects, figma portfolio, Kolkata, India">
   <meta name="author" content="Gopa Dutta">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://gopadutta.com/">
+  <link rel="canonical" href="https://gopaduttaui.github.io/portfolio/">
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://gopadutta.com/">
+  <meta property="og:url" content="https://gopaduttaui.github.io/portfolio/">
   <meta property="og:title" content="Gopa Dutta — High-End Graphic & Motion Designer">
   <meta property="og:description" content="Designing premium brand architectures, motion graphics, and digital user experiences globally. Explore selected work and project planner.">
-  <meta property="og:image" content="https://gopadutta.com/image.png">
+  <meta property="og:image" content="https://gopaduttaui.github.io/portfolio/image.png">
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:url" content="https://gopadutta.com/">
+  <meta property="twitter:url" content="https://gopaduttaui.github.io/portfolio/">
   <meta property="twitter:title" content="Gopa Dutta — High-End Graphic & Motion Designer">
   <meta property="twitter:description" content="Designing premium brand architectures, motion graphics, and digital user experiences globally. Explore selected work and project planner.">
-  <meta property="twitter:image" content="https://gopadutta.com/image.png">
+  <meta property="twitter:image" content="https://gopaduttaui.github.io/portfolio/image.png">
+
+  <!-- Structured Data JSON-LD (SEO) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://gopaduttaui.github.io/portfolio/#person",
+        "name": "Gopa Dutta",
+        "jobTitle": "Graphic & Motion Designer",
+        "url": "https://gopaduttaui.github.io/portfolio/",
+        "sameAs": [
+          "https://www.behance.net/gopadutta",
+          "https://www.instagram.com/gopadutta",
+          "https://www.linkedin.com/in/gopadutta"
+        ],
+        "knowsAbout": ["Graphic Design", "Motion Graphics", "2D Animation", "UI/UX Design", "Brand Architecture"],
+        "description": "Premium corporate brand identity systems, high-fidelity motion graphics, and digital UI/UX user experiences designed by Gopa Dutta."
+      },
+      {
+        "@type": "ProfessionalService",
+        "@id": "https://gopaduttaui.github.io/portfolio/#service",
+        "name": "Gopa Dutta Design Studio",
+        "image": "https://gopaduttaui.github.io/portfolio/image.png",
+        "priceRange": "$$$",
+        "telephone": "+919876543210",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Kolkata",
+          "addressRegion": "West Bengal",
+          "addressCountry": "India"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "22.5726",
+          "longitude": "88.3639"
+        },
+        "url": "https://gopaduttaui.github.io/portfolio/"
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://gopaduttaui.github.io/portfolio/#website",
+        "url": "https://gopaduttaui.github.io/portfolio/",
+        "name": "Gopa Dutta — High-End Graphic & Motion Designer",
+        "description": "Portfolio of Gopa Dutta — High-End Graphic & Motion Designer based in India. Designing premium corporate brand identity systems, high-fidelity motion graphics, and digital UI/UX user experiences.",
+        "publisher": {
+          "@id": "https://gopaduttaui.github.io/portfolio/#person"
+        }
+      }
+    ]
+  }
+  </script>
   
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -169,9 +222,76 @@
       -webkit-backdrop-filter: blur(12px);
       border: 1px solid rgba(255, 255, 255, 0.05);
     }
+
+    /* Modern Interactive Custom Cursor */
+    @media (pointer: fine) {
+      .custom-cursor-dot {
+        width: 8px;
+        height: 8px;
+        background-color: #D4F54E;
+        border-radius: 50%;
+        position: fixed;
+        transform: translate(-50%, -50%);
+        pointer-events: none;
+        z-index: 99999;
+        mix-blend-mode: difference;
+        transition: width 0.2s, height 0.2s, background-color 0.2s;
+      }
+      .custom-cursor-ring {
+        width: 32px;
+        height: 32px;
+        border: 1px solid rgba(212, 245, 78, 0.4);
+        border-radius: 50%;
+        position: fixed;
+        transform: translate(-50%, -50%);
+        pointer-events: none;
+        z-index: 99998;
+        transition: width 0.3s, height 0.3s, border-color 0.3s, background-color 0.3s;
+      }
+      /* Hover state styles */
+      body.cursor-hover .custom-cursor-dot {
+        width: 4px;
+        height: 4px;
+        background-color: #050505;
+      }
+      body.cursor-hover .custom-cursor-ring {
+        width: 56px;
+        height: 56px;
+        border-color: #D4F54E;
+        background-color: rgba(212, 245, 78, 0.1);
+      }
+      /* Hide native cursor for a clean effect on desktop */
+      a, button, [role="button"], .interactive-element, .view-study-btn, .planner-system-btn {
+        cursor: none !important;
+      }
+    }
+
+    /* Client Brand Logo Marquee Mask */
+    .mask-gradient {
+      mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+      -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+    }
+
+    /* Magnetic element smooth transitions */
+    .magnetic {
+      transition: transform 0.2s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    /* Native Details/Summary FAQ Grid Styling */
+    details[name="faq-group"] {
+      transition: all 0.3s ease;
+    }
+    details[name="faq-group"][open] {
+      border-color: rgba(212, 245, 78, 0.2);
+      box-shadow: 0 4px 20px rgba(212, 245, 78, 0.03);
+    }
   </style>
 </head>
 <body class="blueprint-grid selection:bg-accent selection:text-obsidian antialiased">
+
+  <!-- Modern Interactive Custom Cursor -->
+  <div id="custom-cursor-dot" class="custom-cursor-dot pointer-events-none fixed top-0 left-0 w-2 h-2 rounded-full bg-accent z-[99999] opacity-0 transition-opacity duration-300"></div>
+  <div id="custom-cursor-ring" class="custom-cursor-ring pointer-events-none fixed top-0 left-0 w-8 h-8 rounded-full border border-accent/40 z-[99999] opacity-0 transition-opacity duration-300 -translate-x-1/2 -translate-y-1/2"></div>
 
   <!-- Fine Film Grain Overlay -->
   <div class="grain-overlay"></div>
@@ -203,7 +323,7 @@
       <!-- Control Center (CTAs) -->
       <div class="flex items-center gap-4">
 
-        <a href="#contact" class="hidden sm:inline-flex items-center gap-2 font-mono text-[10px] tracking-widest text-obsidian bg-accent hover:bg-bone hover:scale-105 active:scale-95 px-6 py-3 rounded-full font-bold transition-all duration-300">
+        <a href="#contact" class="magnetic hidden sm:inline-flex items-center gap-2 font-mono text-[10px] tracking-widest text-obsidian bg-accent hover:bg-bone hover:scale-105 active:scale-95 px-6 py-3 rounded-full font-bold transition-all duration-300">
           HIRE ME
           <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
         </a>
@@ -289,7 +409,7 @@
 
       <!-- Navigation Trigger -->
       <div class="flex items-center gap-4 md:justify-end">
-        <a href="#projects" class="interactive-element group flex items-center gap-3 bg-white/5 hover:bg-accent hover:text-obsidian px-6 py-4 rounded-full border border-white/10 hover:border-transparent transition-all duration-300" data-hover-type="link">
+        <a href="#projects" class="magnetic interactive-element group flex items-center gap-3 bg-white/5 hover:bg-accent hover:text-obsidian px-6 py-4 rounded-full border border-white/10 hover:border-transparent transition-all duration-300" data-hover-type="link">
           <span class="font-mono text-[10px] uppercase font-bold tracking-widest">View Portfolio</span>
           <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-y-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
@@ -371,6 +491,51 @@
 
 
   <!-- ─────────────────────────────────────────────
+     CLIENT BRAND LOGO TICKER (Premium Marquee)
+  ───────────────────────────────────────────── -->
+  <div class="w-full py-10 border-b border-white/5 bg-obsidian overflow-hidden select-none pointer-events-none">
+    <div class="max-w-7xl mx-auto px-6 md:px-12 mb-4">
+      <span class="font-mono text-[9px] text-mutedText/40 tracking-[0.25em] uppercase">SELECTED COLLABORATORS &amp; PARTNERS</span>
+    </div>
+    <div class="flex whitespace-nowrap overflow-hidden relative w-full mask-gradient">
+      <!-- Sliding elements -->
+      <div class="flex gap-24 animate-marquee pr-24 font-serif text-2xl text-mutedText/25 tracking-widest font-bold uppercase items-center">
+        <span>Avenue Jewels</span>
+        <span>✦</span>
+        <span>TechVibe Studio</span>
+        <span>✦</span>
+        <span>Brew Co.</span>
+        <span>✦</span>
+        <span>BotX Labs</span>
+        <span>✦</span>
+        <span>Zephyr Media</span>
+        <span>✦</span>
+        <span>Elevate Co.</span>
+        <span>✦</span>
+        <span>Nouveau Gold</span>
+        <span>✦</span>
+      </div>
+      <div class="flex gap-24 animate-marquee pr-24 font-serif text-2xl text-mutedText/25 tracking-widest font-bold uppercase items-center" aria-hidden="true">
+        <span>Avenue Jewels</span>
+        <span>✦</span>
+        <span>TechVibe Studio</span>
+        <span>✦</span>
+        <span>Brew Co.</span>
+        <span>✦</span>
+        <span>BotX Labs</span>
+        <span>✦</span>
+        <span>Zephyr Media</span>
+        <span>✦</span>
+        <span>Elevate Co.</span>
+        <span>✦</span>
+        <span>Nouveau Gold</span>
+        <span>✦</span>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ─────────────────────────────────────────────
      ABOUT SECTION (Premium Base64/Vector Fallback Setup)
   ───────────────────────────────────────────── -->
   <section id="about" class="max-w-7xl mx-auto px-6 md:px-12 py-24 md:py-32">
@@ -389,7 +554,8 @@
           <img 
             id="about-portrait"
             src="image.png" 
-            alt="Gopa Dutta Portrait" 
+            alt="Gopa Dutta — High-End Graphic & Motion Designer Portrait" 
+            fetchpriority="high"
             class="w-full aspect-[3/4] object-cover filter saturate-[0.9] contrast-[1.02] group-hover:scale-102 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]"
             onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAnIGhlaWdodD0iNDAwIiB2aWV3Qm94PSIwIDAgMzAwIDQwMCI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0iIzExMTExMyIvPjxjaXJjbGUgY3g9IjE1MCIgY3k9IjE2MCIgcj0iNjAiIGZpbGw9IiMyMjIyMjUiLz48cGF0aCBkPSJNMzAsMzUwIEMzMCwyNTAgMjcwLDI1MCAyNzAsMzUwIFoiIGZpbGw9IiMyMjIyMjUiLz48dGV4dCB4PSI1MCUiIHk9IjkwJSIgZmlsbD0iIzhhODk4NSIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkdvcGEgRHV0dGEgKFBvcnRyYWl0KTwvdGV4dD48L3N2Zz4=';"
           >
@@ -421,6 +587,41 @@
           <p>
             From high-end jewelry brand identities to tech startup product assets and digital interface motions, my core principle is extreme precision. Every movement graph is custom-calibrated, and every logo vector is constructed with long-term strategy in mind.
           </p>
+        </div>
+
+        <!-- Professional engagements timeline -->
+        <div class="border-t border-white/5 pt-8">
+          <h4 class="font-mono text-[9px] text-bone tracking-widest uppercase mb-6">PROFESSIONAL ENGAGEMENTS</h4>
+          <div class="relative pl-6 border-l border-white/10 space-y-6">
+            
+            <!-- Timeline Item 1 -->
+            <div class="relative group/time">
+              <!-- Dot Indicator -->
+              <div class="absolute -left-[30px] top-1.5 w-2 h-2 rounded-full bg-accent border-2 border-obsidian transition-transform duration-300 group-hover/time:scale-150 group-hover/time:bg-bone"></div>
+              <span class="font-mono text-[9px] text-accent font-semibold tracking-wider">2024 — PRESENT</span>
+              <h5 class="font-serif text-base text-bone mt-1">Lead Creative &amp; Motion Director</h5>
+              <p class="text-xs text-mutedText mt-1">TechVibe Studio • Orchestrating dynamic branding and vector-animation pipelines for high-growth startups globally.</p>
+            </div>
+            
+            <!-- Timeline Item 2 -->
+            <div class="relative group/time">
+              <!-- Dot Indicator -->
+              <div class="absolute -left-[30px] top-1.5 w-2 h-2 rounded-full bg-mutedText border-2 border-obsidian transition-transform duration-300 group-hover/time:scale-150 group-hover/time:bg-accent"></div>
+              <span class="font-mono text-[9px] text-mutedText tracking-wider">2022 — 2024</span>
+              <h5 class="font-serif text-base text-bone mt-1">Senior Brand Architect</h5>
+              <p class="text-xs text-mutedText mt-1">BrandArc India • Formulating luxury visual systems, high-fidelity layouts, and typography blueprints for jewelry and hospitality clients.</p>
+            </div>
+            
+            <!-- Timeline Item 3 -->
+            <div class="relative group/time">
+              <!-- Dot Indicator -->
+              <div class="absolute -left-[30px] top-1.5 w-2 h-2 rounded-full bg-mutedText border-2 border-obsidian transition-transform duration-300 group-hover/time:scale-150 group-hover/time:bg-accent"></div>
+              <span class="font-mono text-[9px] text-mutedText tracking-wider">2020 — 2022</span>
+              <h5 class="font-serif text-base text-bone mt-1">Freelance Motion Designer</h5>
+              <p class="text-xs text-mutedText mt-1">Independent Practice • Engineering custom explainer animations, graphic design packaging, and Lottie web assets for direct business partners.</p>
+            </div>
+            
+          </div>
         </div>
 
         <!-- Bento Style Tool Belt -->
@@ -579,7 +780,8 @@
         <div class="relative overflow-hidden aspect-[4/3] bg-neutral-900">
           <img 
             src="https://mir-s3-cdn-cf.behance.net/projects/404/24d3ef244133067.6988ee98e71da.png" 
-            alt="Men's Grooming E-commerce UI" 
+            alt="Men's Grooming E-commerce Dark Mode User Interface Concept by Gopa Dutta" 
+            loading="lazy"
             class="interactive-element w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             data-hover-type="project"
             referrerpolicy="no-referrer"
@@ -607,7 +809,8 @@
         <div class="relative overflow-hidden aspect-[4/3] bg-neutral-900">
           <img 
             src="https://mir-s3-cdn-cf.behance.net/projects/404/b288f5243751775.6989037d6ccf8.png" 
-            alt="Floriaa Jewelry branding" 
+            alt="Floriaa Luxury Jewelry Brand Identity and Packaging Guidelines by Gopa Dutta" 
+            loading="lazy"
             class="interactive-element w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             data-hover-type="project"
             referrerpolicy="no-referrer"
@@ -635,7 +838,8 @@
         <div class="relative overflow-hidden aspect-[4/3] bg-neutral-900">
           <img 
             src="https://mir-s3-cdn-cf.behance.net/projects/404/f1b814243272337.Y3JvcCwxMTQ1LDg5NSwyOCww.jpg" 
-            alt="Cafe Brew identity design" 
+            alt="Cafe Brew Artisan Coffee Branding and Packaging Label Design by Gopa Dutta" 
+            loading="lazy"
             class="interactive-element w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             data-hover-type="project"
             referrerpolicy="no-referrer"
@@ -663,7 +867,8 @@
         <div class="relative overflow-hidden aspect-[4/3] bg-neutral-900">
           <img 
             src="https://mir-s3-cdn-cf.behance.net/projects/404/ad8296194345889.Y3JvcCwxMzgwLDEwODAsMjcwLDA.png" 
-            alt="2D Animation motion showreel" 
+            alt="Calibrated 2D Motion Graphics Animation Showreel by Gopa Dutta" 
+            loading="lazy"
             class="interactive-element w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             data-hover-type="project"
             referrerpolicy="no-referrer"
@@ -691,7 +896,8 @@
         <div class="relative overflow-hidden aspect-[4/3] bg-neutral-900">
           <img 
             src="https://mir-s3-cdn-cf.behance.net/projects/404/1fcf8f243123445.Y3JvcCwxMDgwLDg0NCwwLDUzNw.png" 
-            alt="Modern vector illustration series" 
+            alt="Modern Geometric Editorial Vector Illustrations by Gopa Dutta" 
+            loading="lazy"
             class="interactive-element w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             data-hover-type="project"
             referrerpolicy="no-referrer"
@@ -719,7 +925,8 @@
         <div class="relative overflow-hidden aspect-[4/3] bg-neutral-900">
           <img 
             src="https://mir-s3-cdn-cf.behance.net/projects/404/4a4571242771853.698558fe51c0e.png" 
-            alt="BotX AI Brand logo system" 
+            alt="BotX AI Brand Identity Logotype and Network Emblem System by Gopa Dutta" 
+            loading="lazy"
             class="interactive-element w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             data-hover-type="project"
             referrerpolicy="no-referrer"
@@ -828,7 +1035,7 @@
             <p class="text-[9px] text-mutedText/50 mt-1">* Estimates are based on project complexity and accelerated timeline calculations.</p>
           </div>
 
-          <button id="planner-submit-btn" class="interactive-element inline-flex items-center justify-center gap-3 bg-accent text-obsidian hover:bg-bone hover:text-obsidian px-8 py-4 rounded-xl font-mono text-xs uppercase font-bold tracking-widest transition-all duration-300 shadow-lg" data-hover-type="link">
+          <button id="planner-submit-btn" class="magnetic interactive-element inline-flex items-center justify-center gap-3 bg-accent text-obsidian hover:bg-bone hover:text-obsidian px-8 py-4 rounded-xl font-mono text-xs uppercase font-bold tracking-widest transition-all duration-300 shadow-lg" data-hover-type="link">
             Sync Plan &amp; Request Quote
           </button>
         </div>
@@ -922,6 +1129,77 @@
 
 
   <!-- ─────────────────────────────────────────────
+     FREQUENT INQUIRIES (Native FAQ Disclosure System)
+  ───────────────────────────────────────────── -->
+  <section id="faq-section" class="max-w-4xl mx-auto px-6 py-24 md:py-32 border-b border-white/5">
+    <div class="text-center mb-16 reveal-element">
+      <div class="flex items-center justify-center gap-2 mb-3">
+        <span class="font-mono text-[10px] text-accent uppercase tracking-[0.25em]">05. SERVICE PROTOCOLS</span>
+      </div>
+      <h2 class="font-serif text-4xl md:text-5xl text-bone">
+        Frequently Asked <span class="italic text-accent">Questions</span>
+      </h2>
+      <p class="text-xs text-mutedText mt-4 max-w-sm mx-auto leading-relaxed">
+        Understanding the collaboration structure, typical delivery schedules, and creative transfer options.
+      </p>
+    </div>
+
+    <!-- Exclusive Native Accordion Grid -->
+    <div class="space-y-4 max-w-3xl mx-auto reveal-element">
+      
+      <details class="group border border-white/5 rounded-xl bg-surface/50 p-6 [&_summary::-webkit-details-marker]:hidden" name="faq-group">
+        <summary class="flex justify-between items-center cursor-pointer list-none focus:outline-none">
+          <h3 class="font-serif text-lg text-bone group-hover:text-accent transition-colors duration-300">
+            What is your standard production timeline?
+          </h3>
+          <span class="font-mono text-xs text-mutedText group-open:rotate-45 transition-transform duration-300">✦</span>
+        </summary>
+        <div class="mt-4 text-xs text-mutedText leading-relaxed border-t border-white/5 pt-4">
+          Timelines range from 2 to 12 weeks depending on scope. Accelerated options (under 3 weeks) are available for urgent launches and carry a velocity premium. Standard brand and motion packages usually complete in 4 to 6 weeks.
+        </div>
+      </details>
+
+      <details class="group border border-white/5 rounded-xl bg-surface/50 p-6 [&_summary::-webkit-details-marker]:hidden" name="faq-group">
+        <summary class="flex justify-between items-center cursor-pointer list-none focus:outline-none">
+          <h3 class="font-serif text-lg text-bone group-hover:text-accent transition-colors duration-300">
+            Which source files are transferred upon completion?
+          </h3>
+          <span class="font-mono text-xs text-mutedText group-open:rotate-45 transition-transform duration-300">✦</span>
+        </summary>
+        <div class="mt-4 text-xs text-mutedText leading-relaxed border-t border-white/5 pt-4">
+          Upon project sign-off and final investment receipt, you receive fully organized source deliverables including After Effects (.aep) files, illustrator vectors (.ai), raw Figma layouts, and high-fidelity output files (MP4, SVG, Lottie HTML/JSON).
+        </div>
+      </details>
+
+      <details class="group border border-white/5 rounded-xl bg-surface/50 p-6 [&_summary::-webkit-details-marker]:hidden" name="faq-group">
+        <summary class="flex justify-between items-center cursor-pointer list-none focus:outline-none">
+          <h3 class="font-serif text-lg text-bone group-hover:text-accent transition-colors duration-300">
+            Do you collaborate with agency partners?
+          </h3>
+          <span class="font-mono text-xs text-mutedText group-open:rotate-45 transition-transform duration-300">✦</span>
+        </summary>
+        <div class="mt-4 text-xs text-mutedText leading-relaxed border-t border-white/5 pt-4">
+          Yes. I operate both as a direct consultant for private clients and as a white-labeled motion directress or UI partner for digital studios and branding agencies globally.
+        </div>
+      </details>
+
+      <details class="group border border-white/5 rounded-xl bg-surface/50 p-6 [&_summary::-webkit-details-marker]:hidden" name="faq-group">
+        <summary class="flex justify-between items-center cursor-pointer list-none focus:outline-none">
+          <h3 class="font-serif text-lg text-bone group-hover:text-accent transition-colors duration-300">
+            How does the Project Planner pricing align with real quotes?
+          </h3>
+          <span class="font-mono text-xs text-mutedText group-open:rotate-45 transition-transform duration-300">✦</span>
+        </summary>
+        <div class="mt-4 text-xs text-mutedText leading-relaxed border-t border-white/5 pt-4">
+          The project estimator calculator provides a realistic starting baseline based on my hourly rate and standard module difficulties. Exact quotes are sent after reviewing specific client assets and detailed scope briefs during initial calls.
+        </div>
+      </details>
+
+    </div>
+  </section>
+
+
+  <!-- ─────────────────────────────────────────────
      CONTACT SECTION (Refined Communication Center)
   ───────────────────────────────────────────── -->
   <section id="contact" class="max-w-7xl mx-auto px-6 md:px-12 py-24 md:py-32">
@@ -985,7 +1263,7 @@
 
       <!-- Live Messaging Form -->
       <div class="lg:col-span-7 reveal-element bg-surface rounded-2xl border border-white/5 p-8 md:p-12 relative overflow-hidden">
-        <form id="contact-form" onsubmit="event.preventDefault(); sendMsg();" class="flex flex-col gap-8">
+        <form id="contact-form" class="flex flex-col gap-8">
           
           <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div class="flex flex-col gap-2">
@@ -1008,7 +1286,7 @@
             <textarea id="form-message" rows="4" placeholder="Elaborate on objectives, timeline expectations, and budget levels..." required class="bg-transparent border-b border-white/15 focus:border-accent text-sm text-bone py-2 placeholder:text-mutedText/30 focus:outline-none resize-none transition-colors duration-300"></textarea>
           </div>
 
-          <button type="submit" id="form-submit-btn" class="w-full inline-flex items-center justify-center gap-3 bg-accent text-obsidian hover:bg-bone hover:text-obsidian py-4 rounded-xl font-mono text-xs uppercase font-bold tracking-widest transition-all duration-300 shadow-lg">
+          <button type="submit" id="form-submit-btn" class="magnetic w-full inline-flex items-center justify-center gap-3 bg-accent text-obsidian hover:bg-bone hover:text-obsidian py-4 rounded-xl font-mono text-xs uppercase font-bold tracking-widest transition-all duration-300 shadow-lg">
             Dispatch Message
             <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
           </button>
@@ -1042,6 +1320,17 @@
   </footer>
 
 
+  <!-- Modern Scroll Progress Back To Top -->
+  <button id="back-to-top" class="fixed bottom-6 right-6 w-12 h-12 rounded-full bg-surface border border-white/10 flex items-center justify-center text-bone opacity-0 scale-90 translate-y-4 transition-all duration-300 hover:border-accent z-40" aria-label="Back to top">
+    <!-- Circular Progress Indicator -->
+    <svg class="absolute inset-0 w-full h-full -rotate-90" viewBox="0 0 36 36">
+      <circle class="text-white/5" stroke-width="2" stroke="currentColor" fill="none" r="16" cx="18" cy="18" />
+      <circle id="scroll-circle-progress" class="text-accent transition-all duration-100" stroke-width="2" stroke-dasharray="100" stroke-dashoffset="100" stroke-linecap="round" stroke="currentColor" fill="none" r="16" cx="18" cy="18" />
+    </svg>
+    <span class="text-xs pointer-events-none">↑</span>
+  </button>
+
+
   <!-- ─────────────────────────────────────────────
      IMMERSIVE CASE STUDY MODAL (Native dialog)
   ───────────────────────────────────────────── -->
@@ -1066,6 +1355,106 @@
     ====================================================================
   -->
   <script>
+    /* ─────────────────────────────────────────────
+       0. PREMIUM INTERACTIVE EXPERIENCE (CUSTOM CURSOR & MAGNETIC EFFECT)
+    ───────────────────────────────────────────── */
+    // Custom Cursor Logic
+    let mouseX = 0, mouseY = 0;
+    let ringX = 0, ringY = 0;
+    const dot = document.getElementById('custom-cursor-dot');
+    const ring = document.getElementById('custom-cursor-ring');
+
+    if (window.matchMedia('(pointer: fine)').matches) {
+      document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        
+        if (dot) {
+          dot.style.left = mouseX + 'px';
+          dot.style.top = mouseY + 'px';
+          dot.style.opacity = '1';
+        }
+        if (ring) {
+          ring.style.opacity = '1';
+        }
+      });
+
+      document.addEventListener('mouseleave', () => {
+        if (dot) dot.style.opacity = '0';
+        if (ring) ring.style.opacity = '0';
+      });
+
+      // Smooth custom cursor ring lag effect using rAF
+      function updateCursor() {
+        ringX += (mouseX - ringX) * 0.15;
+        ringY += (mouseY - ringY) * 0.15;
+        
+        if (ring) {
+          ring.style.left = ringX + 'px';
+          ring.style.top = ringY + 'px';
+        }
+        requestAnimationFrame(updateCursor);
+      }
+      updateCursor();
+
+      // Custom cursor hovers on interactive links
+      document.addEventListener('mouseover', (e) => {
+        const target = e.target.closest('a, button, [role="button"], .interactive-element, .view-study-btn, .planner-system-btn');
+        if (target) {
+          document.body.classList.add('cursor-hover');
+        }
+      });
+      document.addEventListener('mouseout', (e) => {
+        const target = e.target.closest('a, button, [role="button"], .interactive-element, .view-study-btn, .planner-system-btn');
+        if (target) {
+          document.body.classList.remove('cursor-hover');
+        }
+      });
+    }
+
+    // Magnetic CTA Button Pull Physics
+    const magneticElements = document.querySelectorAll('.magnetic');
+    if (window.matchMedia('(pointer: fine)').matches) {
+      magneticElements.forEach(elem => {
+        elem.addEventListener('mousemove', function(e) {
+          const bound = this.getBoundingClientRect();
+          const x = e.clientX - bound.left - bound.width / 2;
+          const y = e.clientY - bound.top - bound.height / 2;
+          this.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+        });
+        elem.addEventListener('mouseleave', function() {
+          this.style.transform = 'translate(0px, 0px)';
+        });
+      });
+    }
+
+    // Scroll Progress Indicator & Back to Top Logic
+    const backToTopBtn = document.getElementById('back-to-top');
+    const progressCircle = document.getElementById('scroll-circle-progress');
+
+    if (backToTopBtn && progressCircle) {
+      window.addEventListener('scroll', () => {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+        
+        progressCircle.style.strokeDashoffset = Math.max(0, 100 - scrollPercent);
+
+        if (scrollTop > 300) {
+          backToTopBtn.classList.remove('opacity-0', 'scale-90', 'translate-y-4');
+          backToTopBtn.classList.add('opacity-100', 'scale-100', 'translate-y-0');
+        } else {
+          backToTopBtn.classList.remove('opacity-100', 'scale-100', 'translate-y-0');
+          backToTopBtn.classList.add('opacity-0', 'scale-90', 'translate-y-4');
+        }
+      });
+
+      backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
+
+
     /* ─────────────────────────────────────────────
        1. HIGH-PERFORMANCE NON-BLOCKING AUDIO ENGINE
     ───────────────────────────────────────────── */
@@ -1532,18 +1921,44 @@
 
 
     /* ─────────────────────────────────────────────
-       10. LIVE FORM SUBMIT INTERACTIVE REACTION
+       10. LIVE FORM SUBMIT INTERACTIVE REACTION (WHATSAPP REDIRECT)
     ───────────────────────────────────────────── */
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+      contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        sendMsg();
+      });
+    }
+
     function sendMsg() {
+      const name = document.getElementById('form-name').value.trim();
+      const email = document.getElementById('form-email').value.trim();
+      const service = document.getElementById('form-service').value.trim();
+      const message = document.getElementById('form-message').value.trim();
+
+      if (!name || !email || !service || !message) return;
+
       const submitBtn = document.getElementById('form-submit-btn');
       const prevContent = submitBtn.innerHTML;
 
-      // Trigger success sound feedback
+      // Trigger success audio feedback
       playSuccess();
 
-      submitBtn.innerHTML = `DISPATCH SUCCESS &bull; TALK SOON &checkmark;`;
+      // Update button state visually
+      submitBtn.innerHTML = `OPENING WHATSAPP... 💬`;
       submitBtn.classList.remove('bg-accent', 'text-obsidian');
       submitBtn.classList.add('bg-emerald-500', 'text-bone');
+
+      // Construct a beautifully formatted WhatsApp text payload
+      const divider = "──────────────────────────";
+      const waText = `*NEW INQUIRY FROM PORTFOLIO*\n${divider}\n👤 *Name:* ${name}\n📧 *Email:* ${email}\n🛠 *Services:* ${service}\n\n💬 *Message Details:*\n${message}\n${divider}\n_Sent via portfolio website_`;
+      
+      const whatsappNumber = "919876543210";
+      const whatsappUrl = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodeURIComponent(waText)}`;
+
+      // Open WhatsApp in a new tab
+      window.open(whatsappUrl, '_blank');
 
       setTimeout(() => {
         submitBtn.innerHTML = prevContent;
@@ -1551,7 +1966,7 @@
         submitBtn.classList.add('bg-accent', 'text-obsidian');
         
         // Reset messaging inputs safely
-        document.getElementById('contact-form').reset();
+        if (contactForm) contactForm.reset();
       }, 4000);
     }
   </script>
