@@ -12,6 +12,7 @@
   <meta name="publisher" content="Gopa Dutta">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://gopaduttaui.github.io/portfolio/">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='25' fill='%23050505'/%3E%3Cpath d='M50,15 L58,38 L82,38 L62,52 L70,75 L50,60 L30,75 L38,52 L18,38 L42,38 Z' fill='%23D4F54E'/%3E%3C/svg%3E">
  
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
@@ -234,11 +235,14 @@
         background-color: #D4F54E;
         border-radius: 50%;
         position: fixed;
-        transform: translate(-50%, -50%);
+        top: 0;
+        left: 0;
         pointer-events: none;
         z-index: 99999;
         mix-blend-mode: difference;
         transition: width 0.2s, height 0.2s, background-color 0.2s;
+        will-change: transform;
+        transform: translate3d(var(--x, 0px), var(--y, 0px), 0) translate(-50%, -50%);
       }
       .custom-cursor-ring {
         width: 32px;
@@ -246,10 +250,13 @@
         border: 1px solid rgba(212, 245, 78, 0.4);
         border-radius: 50%;
         position: fixed;
-        transform: translate(-50%, -50%);
+        top: 0;
+        left: 0;
         pointer-events: none;
         z-index: 99998;
         transition: width 0.3s, height 0.3s, border-color 0.3s, background-color 0.3s;
+        will-change: transform;
+        transform: translate3d(var(--x, 0px), var(--y, 0px), 0) translate(-50%, -50%);
       }
       /* Hover state styles */
       body.cursor-hover .custom-cursor-dot {
@@ -1373,8 +1380,8 @@
         mouseY = e.clientY;
         
         if (dot) {
-          dot.style.left = mouseX + 'px';
-          dot.style.top = mouseY + 'px';
+          dot.style.setProperty('--x', mouseX + 'px');
+          dot.style.setProperty('--y', mouseY + 'px');
           dot.style.opacity = '1';
         }
         if (ring) {
@@ -1393,8 +1400,8 @@
         ringY += (mouseY - ringY) * 0.15;
         
         if (ring) {
-          ring.style.left = ringX + 'px';
-          ring.style.top = ringY + 'px';
+          ring.style.setProperty('--x', ringX + 'px');
+          ring.style.setProperty('--y', ringY + 'px');
         }
         requestAnimationFrame(updateCursor);
       }
