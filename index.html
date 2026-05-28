@@ -43,6 +43,7 @@
           "https://www.linkedin.com/in/gopadutta"
         ],
         "knowsAbout": ["Graphic Design", "Motion Graphics", "2D Animation", "UI/UX Design", "Brand Architecture"],
+        "email": "gopadutta326@gmail.com",
         "description": "Premium corporate brand identity systems, high-fidelity motion graphics, and digital UI/UX user experiences designed by Gopa Dutta."
       },
       {
@@ -51,7 +52,7 @@
         "name": "Gopa Dutta Design Studio",
         "image": "https://gopaduttaui.github.io/portfolio/image.png",
         "priceRange": "$$$",
-        "telephone": "+919876543210",
+        "telephone": "+919836851947",
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "Kolkata",
@@ -63,6 +64,7 @@
           "latitude": "22.5726",
           "longitude": "88.3639"
         },
+        "email": "gopadutta326@gmail.com",
         "url": "https://gopaduttaui.github.io/portfolio/"
       },
       {
@@ -352,7 +354,7 @@
         <span class="w-2.5 h-2.5 bg-emerald-500 rounded-full animate-ping"></span>
         <span class="font-mono text-xs text-mutedText uppercase tracking-wider">AVAILABLE FOR PROJECTS WORLDWIDE</span>
       </div>
-      <a href="mailto:gopadutta@email.com" class="font-mono text-sm text-bone underline">gopadutta@email.com</a>
+      <a href="mailto:gopadutta326@gmail.com" class="font-mono text-sm text-bone underline">gopadutta326@gmail.com</a>
     </div>
   </div>
 
@@ -1226,15 +1228,15 @@
             <div class="w-10 h-10 rounded-lg bg-neutral-900 flex items-center justify-center text-accent font-mono text-sm">@</div>
             <div>
               <span class="block font-mono text-[8px] text-mutedText uppercase tracking-widest">SEND DIRECT EMAIL</span>
-              <a href="mailto:gopadutta@email.com" class="interactive-element text-sm text-bone hover:text-accent font-semibold transition-colors" data-hover-type="link">gopadutta@email.com</a>
+              <a href="mailto:gopadutta326@gmail.com" class="interactive-element text-sm text-bone hover:text-accent font-semibold transition-colors" data-hover-type="link">gopadutta326@gmail.com</a>
             </div>
           </div>
 
           <div class="flex items-center gap-4 p-4 rounded-xl bg-surface border border-white/5 hover:border-accent/20 transition-all duration-300">
-            <div class="w-10 h-10 rounded-lg bg-neutral-900 flex items-center justify-center text-accent font-mono text-sm">↗</div>
+            <div class="w-10 h-10 rounded-lg bg-neutral-900 flex items-center justify-center text-accent font-mono text-sm">☎</div>
             <div>
-              <span class="block font-mono text-[8px] text-mutedText uppercase tracking-widest">MOBILE CHAT</span>
-              <a href="https://wa.me/919876543210" target="_blank" class="interactive-element text-sm text-bone hover:text-accent font-semibold transition-colors" data-hover-type="link">+91 98765 43210</a>
+              <span class="block font-mono text-[8px] text-mutedText uppercase tracking-widest">DIRECT PHONE CALL</span>
+              <a href="tel:+919836851947" class="interactive-element text-sm text-bone hover:text-accent font-semibold transition-colors" data-hover-type="link">+91 98368 51947</a>
             </div>
           </div>
 
@@ -1946,19 +1948,20 @@
       playSuccess();
 
       // Update button state visually
-      submitBtn.innerHTML = `OPENING WHATSAPP... 💬`;
+      submitBtn.innerHTML = `OPENING MAIL CLIENT... ✉️`;
       submitBtn.classList.remove('bg-accent', 'text-obsidian');
       submitBtn.classList.add('bg-emerald-500', 'text-bone');
 
-      // Construct a beautifully formatted WhatsApp text payload
+      // Construct email body formatted text
       const divider = "──────────────────────────";
-      const waText = `*NEW INQUIRY FROM PORTFOLIO*\n${divider}\n👤 *Name:* ${name}\n📧 *Email:* ${email}\n🛠 *Services:* ${service}\n\n💬 *Message Details:*\n${message}\n${divider}\n_Sent via portfolio website_`;
+      const mailBody = `Hello Gopa,\n\nYou have received a new inquiry from your portfolio website.\n\n👤 Client Name: ${name}\n📧 Client Email: ${email}\n🛠 Services Requested: ${service}\n\n💬 Message Details:\n${message}\n\n${divider}\nSent via https://gopaduttaui.github.io/portfolio/`;
       
-      const whatsappNumber = "919876543210";
-      const whatsappUrl = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodeURIComponent(waText)}`;
+      const emailAddress = "gopadutta326@gmail.com";
+      const subject = `Portfolio Inquiry from ${name}`;
+      const mailtoUrl = `mailto:${emailAddress}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(mailBody)}`;
 
-      // Open WhatsApp in a new tab
-      window.open(whatsappUrl, '_blank');
+      // Open default mail client pre-filled
+      window.location.href = mailtoUrl;
 
       setTimeout(() => {
         submitBtn.innerHTML = prevContent;
