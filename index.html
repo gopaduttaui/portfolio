@@ -228,7 +228,15 @@
     }
 
     /* Modern Interactive Custom Cursor */
+    .custom-cursor-dot,
+    .custom-cursor-ring {
+      display: none;
+    }
     @media (pointer: fine) {
+      .custom-cursor-dot,
+      .custom-cursor-ring {
+        display: block;
+      }
       .custom-cursor-dot {
         width: 8px;
         height: 8px;
@@ -349,20 +357,22 @@
   </header>
 
   <!-- Mobile Drawer Menu Overlay -->
-  <div id="mobile-drawer" class="fixed inset-0 z-40 bg-obsidian/95 backdrop-blur-xl translate-y-[-100%] transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] flex flex-col justify-between p-8 pt-28">
-    <nav class="flex flex-col gap-6 text-left">
-      <a href="#about" class="drawer-link font-serif text-4xl text-mutedText hover:text-accent transition-colors duration-300">About</a>
-      <a href="#services" class="drawer-link font-serif text-4xl text-mutedText hover:text-accent transition-colors duration-300">Services</a>
-      <a href="#projects" class="drawer-link font-serif text-4xl text-mutedText hover:text-accent transition-colors duration-300">Selected Work</a>
-      <a href="#estimator" class="drawer-link font-serif text-4xl text-mutedText hover:text-accent transition-colors duration-300">Project Planner</a>
-      <a href="#contact" class="drawer-link font-serif text-4xl text-mutedText hover:text-accent transition-colors duration-300">Contact</a>
-    </nav>
-    <div class="border-t border-white/5 pt-8 flex flex-col gap-4">
-      <div class="flex items-center gap-2">
-        <span class="w-2.5 h-2.5 bg-emerald-500 rounded-full animate-ping"></span>
-        <span class="font-mono text-xs text-mutedText uppercase tracking-wider">AVAILABLE FOR PROJECTS WORLDWIDE</span>
+  <div id="mobile-drawer" class="fixed inset-0 z-40 bg-obsidian/95 backdrop-blur-xl translate-y-[-100%] transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] overflow-y-auto">
+    <div class="min-h-full flex flex-col justify-between p-8 pt-28">
+      <nav class="flex flex-col gap-6 text-left">
+        <a href="#about" class="drawer-link font-serif text-4xl text-mutedText hover:text-accent transition-colors duration-300">About</a>
+        <a href="#services" class="drawer-link font-serif text-4xl text-mutedText hover:text-accent transition-colors duration-300">Services</a>
+        <a href="#projects" class="drawer-link font-serif text-4xl text-mutedText hover:text-accent transition-colors duration-300">Selected Work</a>
+        <a href="#estimator" class="drawer-link font-serif text-4xl text-mutedText hover:text-accent transition-colors duration-300">Project Planner</a>
+        <a href="#contact" class="drawer-link font-serif text-4xl text-mutedText hover:text-accent transition-colors duration-300">Contact</a>
+      </nav>
+      <div class="border-t border-white/5 pt-8 mt-12 flex flex-col gap-4">
+        <div class="flex items-center gap-2">
+          <span class="w-2.5 h-2.5 bg-emerald-500 rounded-full animate-ping"></span>
+          <span class="font-mono text-xs text-mutedText uppercase tracking-wider">AVAILABLE FOR PROJECTS WORLDWIDE</span>
+        </div>
+        <a href="mailto:gopadutta326@gmail.com" class="font-mono text-sm text-bone underline">gopadutta326@gmail.com</a>
       </div>
-      <a href="mailto:gopadutta326@gmail.com" class="font-mono text-sm text-bone underline">gopadutta326@gmail.com</a>
     </div>
   </div>
 
@@ -459,10 +469,10 @@
   <!-- ─────────────────────────────────────────────
      STATS SECTION (Dynamic Counter Dashboard)
   ───────────────────────────────────────────── -->
-  <section id="stats" class="max-w-7xl mx-auto px-6 md:px-12 py-16 grid grid-cols-2 lg:grid-cols-4 gap-1 divide-y lg:divide-y-0 lg:divide-x divide-white/5 border-b border-white/5">
+  <section id="stats" class="max-w-7xl mx-auto px-6 md:px-12 py-16 grid grid-cols-2 lg:grid-cols-4 gap-px bg-white/5 border-b border-white/5">
     
     <!-- Stat Item 1 -->
-    <div class="reveal-element p-8 text-left flex flex-col justify-between h-40">
+    <div class="reveal-element p-6 sm:p-8 text-left flex flex-col justify-between h-40 bg-obsidian">
       <span class="font-mono text-[10px] text-mutedText tracking-[0.2em] uppercase">PROJECTS COMPLETED</span>
       <h3 class="font-serif text-5xl md:text-6xl text-bone mt-2 flex items-baseline gap-1">
         <span class="cnt-number" data-target="40">0</span><span class="text-accent">+</span>
@@ -471,7 +481,7 @@
     </div>
 
     <!-- Stat Item 2 -->
-    <div class="reveal-element p-8 text-left flex flex-col justify-between h-40">
+    <div class="reveal-element p-6 sm:p-8 text-left flex flex-col justify-between h-40 bg-obsidian">
       <span class="font-mono text-[10px] text-mutedText tracking-[0.2em] uppercase">YEARS OF DEVOTION</span>
       <h3 class="font-serif text-5xl md:text-6xl text-bone mt-2 flex items-baseline gap-1">
         <span class="cnt-number" data-target="3">0</span><span class="text-accent">+</span>
@@ -480,7 +490,7 @@
     </div>
 
     <!-- Stat Item 3 -->
-    <div class="reveal-element p-8 text-left flex flex-col justify-between h-40 pt-12 lg:pt-8">
+    <div class="reveal-element p-6 sm:p-8 text-left flex flex-col justify-between h-40 bg-obsidian">
       <span class="font-mono text-[10px] text-mutedText tracking-[0.2em] uppercase">GLOBAL COLLABORATORS</span>
       <h3 class="font-serif text-5xl md:text-6xl text-bone mt-2 flex items-baseline gap-1">
         <span class="cnt-number" data-target="15">0</span><span class="text-accent">+</span>
@@ -489,7 +499,7 @@
     </div>
 
     <!-- Stat Item 4 -->
-    <div class="reveal-element p-8 text-left flex flex-col justify-between h-40 pt-12 lg:pt-8">
+    <div class="reveal-element p-6 sm:p-8 text-left flex flex-col justify-between h-40 bg-obsidian">
       <span class="font-mono text-[10px] text-mutedText tracking-[0.2em] uppercase">CLIENT RETENTION</span>
       <h3 class="font-serif text-5xl md:text-6xl text-bone mt-2 flex items-baseline gap-1">
         <span class="cnt-number" data-target="100">0</span><span class="text-accent">%</span>
@@ -1278,22 +1288,22 @@
           <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div class="flex flex-col gap-2">
               <label class="font-mono text-[9px] text-mutedText uppercase tracking-widest">Client Name</label>
-              <input type="text" id="form-name" placeholder="E.g. Alexander Cole" required class="bg-transparent border-b border-white/15 focus:border-accent text-sm text-bone py-2 placeholder:text-mutedText/30 focus:outline-none transition-colors duration-300">
+              <input type="text" id="form-name" placeholder="E.g. Alexander Cole" required class="bg-transparent border-b border-white/15 focus:border-accent text-base md:text-sm text-bone py-2 placeholder:text-mutedText/30 focus:outline-none transition-colors duration-300">
             </div>
             <div class="flex flex-col gap-2">
               <label class="font-mono text-[9px] text-mutedText uppercase tracking-widest">Email Address</label>
-              <input type="email" id="form-email" placeholder="alex@corporatesystem.com" required class="bg-transparent border-b border-white/15 focus:border-accent text-sm text-bone py-2 placeholder:text-mutedText/30 focus:outline-none transition-colors duration-300">
+              <input type="email" id="form-email" placeholder="alex@corporatesystem.com" required class="bg-transparent border-b border-white/15 focus:border-accent text-base md:text-sm text-bone py-2 placeholder:text-mutedText/30 focus:outline-none transition-colors duration-300">
             </div>
           </div>
 
           <div class="flex flex-col gap-2">
             <label class="font-mono text-[9px] text-mutedText uppercase tracking-widest">Services Needed</label>
-            <input type="text" id="form-service" placeholder="Brand Identity, explainer video editing, UI assets..." required class="bg-transparent border-b border-white/15 focus:border-accent text-sm text-bone py-2 placeholder:text-mutedText/30 focus:outline-none transition-colors duration-300">
+            <input type="text" id="form-service" placeholder="Brand Identity, explainer video editing, UI assets..." required class="bg-transparent border-b border-white/15 focus:border-accent text-base md:text-sm text-bone py-2 placeholder:text-mutedText/30 focus:outline-none transition-colors duration-300">
           </div>
 
           <div class="flex flex-col gap-2">
             <label class="font-mono text-[9px] text-mutedText uppercase tracking-widest">Message Details</label>
-            <textarea id="form-message" rows="4" placeholder="Elaborate on objectives, timeline expectations, and budget levels..." required class="bg-transparent border-b border-white/15 focus:border-accent text-sm text-bone py-2 placeholder:text-mutedText/30 focus:outline-none resize-none transition-colors duration-300"></textarea>
+            <textarea id="form-message" rows="4" placeholder="Elaborate on objectives, timeline expectations, and budget levels..." required class="bg-transparent border-b border-white/15 focus:border-accent text-base md:text-sm text-bone py-2 placeholder:text-mutedText/30 focus:outline-none resize-none transition-colors duration-300"></textarea>
           </div>
 
           <button type="submit" id="form-submit-btn" class="magnetic w-full inline-flex items-center justify-center gap-3 bg-accent text-obsidian hover:bg-bone hover:text-obsidian py-4 rounded-xl font-mono text-xs uppercase font-bold tracking-widest transition-all duration-300 shadow-lg">
@@ -1344,7 +1354,7 @@
   <!-- ─────────────────────────────────────────────
      IMMERSIVE CASE STUDY MODAL (Native dialog)
   ───────────────────────────────────────────── -->
-  <dialog id="case-study-modal" closedby="any" class="premium-glass w-full max-w-4xl max-h-[90vh] rounded-2xl overflow-y-auto relative p-6 md:p-12 text-left shadow-2xl backdrop:bg-obsidian/90 backdrop:backdrop-blur-md border border-white/5 opacity-0 transition-all duration-300 open:opacity-100 open:scale-100 scale-95">
+  <dialog id="case-study-modal" closedby="any" class="premium-glass w-[calc(100%-2rem)] mx-auto md:w-full max-w-4xl max-h-[90vh] rounded-2xl overflow-y-auto relative p-6 md:p-12 text-left shadow-2xl backdrop:bg-obsidian/90 backdrop:backdrop-blur-md border border-white/5 opacity-0 transition-all duration-300 open:opacity-100 open:scale-100 scale-95">
     
     <!-- Close Button -->
     <button id="close-modal-btn" class="absolute top-6 right-6 w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-mutedText hover:text-accent hover:border-accent/40 transition-colors focus:outline-none focus:border-accent" aria-label="Close Case Study">
@@ -1579,12 +1589,14 @@
         burger.querySelector('.burger-line-2').style.opacity = '1';
         burger.querySelector('.burger-line-3').style.transform = 'none';
         burger.querySelector('.burger-line-3').style.width = '1rem';
+        document.body.style.overflow = '';
       } else {
         drawer.style.transform = 'translateY(0%)';
         burger.querySelector('.burger-line-1').style.transform = 'translateY(8px) rotate(45deg)';
         burger.querySelector('.burger-line-2').style.opacity = '0';
         burger.querySelector('.burger-line-3').style.transform = 'translateY(-8px) rotate(-45deg)';
         burger.querySelector('.burger-line-3').style.width = '1.5rem';
+        document.body.style.overflow = 'hidden';
       }
     }
 
