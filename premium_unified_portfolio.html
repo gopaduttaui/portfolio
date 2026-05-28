@@ -1,0 +1,1559 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Primary SEO Metadata -->
+  <title>Gopa Dutta — High-End Graphic & Motion Designer</title>
+  <meta name="description" content="Portfolio of Gopa Dutta — High-End Graphic & Motion Designer based in India. Designing premium corporate brand identity systems, high-fidelity motion graphics, and digital UI/UX user experiences.">
+  <meta name="keywords" content="Gopa Dutta, graphic design, motion designer, brand architecture, UI designer, 2D animation, after effects, figma portfolio, Kolkata, India">
+  <meta name="author" content="Gopa Dutta">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://gopadutta.com/">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://gopadutta.com/">
+  <meta property="og:title" content="Gopa Dutta — High-End Graphic & Motion Designer">
+  <meta property="og:description" content="Designing premium brand architectures, motion graphics, and digital user experiences globally. Explore selected work and project planner.">
+  <meta property="og:image" content="https://gopadutta.com/image.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://gopadutta.com/">
+  <meta property="twitter:title" content="Gopa Dutta — High-End Graphic & Motion Designer">
+  <meta property="twitter:description" content="Designing premium brand architectures, motion graphics, and digital user experiences globally. Explore selected work and project planner.">
+  <meta property="twitter:image" content="https://gopadutta.com/image.png">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Tailwind Configuration for Custom Theme -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['"DM Serif Display"', 'Georgia', 'serif'],
+            sans: ['Geist', 'system-ui', 'sans-serif'],
+            mono: ['"Geist Mono"', 'monospace'],
+          },
+          colors: {
+            obsidian: '#050505',
+            surface: '#0B0B0C',
+            accent: '#D4F54E', /* Electric Lime */
+            accentMuted: 'rgba(212, 245, 78, 0.15)',
+            bone: '#F4F3EF',
+            mutedText: '#8A8985',
+            line: 'rgba(255, 255, 255, 0.05)',
+            lineActive: 'rgba(255, 255, 255, 0.12)',
+          },
+          animation: {
+            'spin-slow': 'spin 12s linear infinite',
+            'pulse-soft': 'pulseSoft 3s ease-in-out infinite',
+            'marquee': 'marquee 30s linear infinite',
+          },
+          keyframes: {
+            pulseSoft: {
+              '0%, 100%': { opacity: 0.15, transform: 'scale(1)' },
+              '50%': { opacity: 0.3, transform: 'scale(1.05)' },
+            },
+            marquee: {
+              '0%': { transform: 'translateX(0%)' },
+              '100%': { transform: 'translateX(-50%)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- 
+    ====================================================================
+    CSS STYLESHEET PORTION (Can be exported directly to styles.css)
+    ====================================================================
+  -->
+  <style>
+    /* ─────────────────────────────────────────────
+       CUSTOM DESIGN SYSTEM TOKENS
+    ───────────────────────────────────────────── */
+    body {
+      background-color: #050505;
+      color: #F4F3EF;
+      overflow-x: hidden;
+    }
+
+    /* Selection Highlight Accent */
+    ::selection {
+      background-color: #D4F54E;
+      color: #050505;
+    }
+
+    /* Fine Film Grain Noise Overlay */
+    .grain-overlay {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9999;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='250'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      opacity: 0.035;
+      mix-blend-mode: overlay;
+    }
+
+    /* Customized Fluid Scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #050505;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #222;
+      border-radius: 3px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #D4F54E;
+    }
+
+    /* Native Dialog styling */
+    dialog {
+      background: rgba(11, 11, 12, 0.75);
+      color: #F4F3EF;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    dialog::backdrop {
+      background: rgba(5, 5, 5, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    /* Transition styles for Dialog showing */
+    dialog[open] {
+      opacity: 1;
+      transform: scale(1);
+    }
+    dialog {
+      opacity: 0;
+      transform: scale(0.95);
+      transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), overlay 0.3s ease allow-discrete, display 0.3s ease allow-discrete;
+    }
+
+    /* Staggered Scroll-Driven Visual Reveals */
+    .reveal-element {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+                  transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal-element.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Studio Blueprint Architectural Grid */
+    .blueprint-grid {
+      background-size: 40px 40px;
+      background-image: linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+                        linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+    }
+
+    /* Studio Glass Panel styling */
+    .premium-glass {
+      background: rgba(11, 11, 12, 0.7);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+  </style>
+</head>
+<body class="blueprint-grid selection:bg-accent selection:text-obsidian antialiased">
+
+  <!-- Fine Film Grain Overlay -->
+  <div class="grain-overlay"></div>
+
+  <!-- Ambient Light Backdrops (Lime Accent & Portrait Complementary Amber) -->
+  <div class="absolute top-[15%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-accent/5 blur-[120px] pointer-events-none animate-pulse-soft"></div>
+  <div class="absolute top-[55%] right-[-10%] w-[45vw] h-[45vw] rounded-full bg-amber-500/5 blur-[150px] pointer-events-none animate-pulse-soft" style="animation-delay: 1.5s;"></div>
+
+  <!-- ─────────────────────────────────────────────
+     HEADER & NAVIGATION (Elite Glassmorphism)
+  ───────────────────────────────────────────── -->
+  <header id="main-header" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 border-b border-transparent py-5">
+    <div class="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="#hero" class="interactive-element flex items-center gap-1.5 font-serif text-xl md:text-2xl font-bold tracking-tight text-bone group" data-hover-type="link">
+        Gopa Dutta<span class="text-accent group-hover:animate-ping">.</span>
+      </a>
+
+      <!-- Navigation System -->
+      <nav class="hidden md:flex items-center gap-1 bg-neutral-900/60 p-1.5 rounded-full border border-white/5 backdrop-blur-md">
+        <a href="#about" class="interactive-element px-5 py-2.5 rounded-full font-mono text-[10px] tracking-widest uppercase text-mutedText hover:text-bone transition-all duration-300" data-hover-type="link">01. About</a>
+        <a href="#services" class="interactive-element px-5 py-2.5 rounded-full font-mono text-[10px] tracking-widest uppercase text-mutedText hover:text-bone transition-all duration-300" data-hover-type="link">02. Services</a>
+        <a href="#projects" class="interactive-element px-5 py-2.5 rounded-full font-mono text-[10px] tracking-widest uppercase text-mutedText hover:text-bone transition-all duration-300" data-hover-type="link">03. Showcase</a>
+        <a href="#estimator" class="interactive-element px-5 py-2.5 rounded-full font-mono text-[10px] tracking-widest uppercase text-mutedText hover:text-bone transition-all duration-300" data-hover-type="link">04. Planner</a>
+        <a href="#contact" class="interactive-element px-5 py-2.5 rounded-full font-mono text-[10px] tracking-widest uppercase text-mutedText hover:text-bone transition-all duration-300" data-hover-type="link">05. Connect</a>
+      </nav>
+
+      <!-- Control Center (CTAs) -->
+      <div class="flex items-center gap-4">
+
+        <a href="#contact" class="hidden sm:inline-flex items-center gap-2 font-mono text-[10px] tracking-widest text-obsidian bg-accent hover:bg-bone hover:scale-105 active:scale-95 px-6 py-3 rounded-full font-bold transition-all duration-300">
+          HIRE ME
+          <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+        </a>
+
+        <!-- Mobile Drawer Toggle -->
+        <button id="burger-menu" class="interactive-element md:hidden flex flex-col gap-1.5 p-2 text-bone focus:outline-none" data-hover-type="link" aria-label="Toggle Menu">
+          <span class="w-6 h-0.5 bg-bone rounded transition-all duration-300 burger-line-1"></span>
+          <span class="w-6 h-0.5 bg-bone rounded transition-all duration-300 burger-line-2"></span>
+          <span class="w-4 h-0.5 bg-bone rounded self-end transition-all duration-300 burger-line-3"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu Overlay -->
+  <div id="mobile-drawer" class="fixed inset-0 z-40 bg-obsidian/95 backdrop-blur-xl translate-y-[-100%] transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] flex flex-col justify-between p-8 pt-28">
+    <nav class="flex flex-col gap-6 text-left">
+      <a href="#about" class="drawer-link font-serif text-4xl text-mutedText hover:text-accent transition-colors duration-300">About</a>
+      <a href="#services" class="drawer-link font-serif text-4xl text-mutedText hover:text-accent transition-colors duration-300">Services</a>
+      <a href="#projects" class="drawer-link font-serif text-4xl text-mutedText hover:text-accent transition-colors duration-300">Selected Work</a>
+      <a href="#estimator" class="drawer-link font-serif text-4xl text-mutedText hover:text-accent transition-colors duration-300">Project Planner</a>
+      <a href="#contact" class="drawer-link font-serif text-4xl text-mutedText hover:text-accent transition-colors duration-300">Contact</a>
+    </nav>
+    <div class="border-t border-white/5 pt-8 flex flex-col gap-4">
+      <div class="flex items-center gap-2">
+        <span class="w-2.5 h-2.5 bg-emerald-500 rounded-full animate-ping"></span>
+        <span class="font-mono text-xs text-mutedText uppercase tracking-wider">AVAILABLE FOR PROJECTS WORLDWIDE</span>
+      </div>
+      <a href="mailto:gopadutta@email.com" class="font-mono text-sm text-bone underline">gopadutta@email.com</a>
+    </div>
+  </div>
+
+
+  <!-- ─────────────────────────────────────────────
+     HERO SECTION (High-Concept Avant Garde)
+  ───────────────────────────────────────────── -->
+  <section id="hero" class="relative min-h-screen flex flex-col justify-between pt-36 pb-12 px-6 md:px-12 max-w-7xl mx-auto overflow-hidden">
+    
+    <!-- Bold branding backdrop text -->
+    <div class="absolute right-0 top-[40%] transform -translate-y-1/2 font-serif text-[22vw] leading-none text-white/[0.015] select-none pointer-events-none">
+      MOTION
+    </div>
+
+    <!-- Category Tag -->
+    <div class="flex items-center gap-3">
+      <div class="w-12 h-[1px] bg-accent"></div>
+      <span class="font-mono text-[10px] uppercase tracking-[0.25em] text-accent">GRAPHIC &amp; MOTION DESIGN DIRECTRESS</span>
+    </div>
+
+    <!-- Dramatic Large Typography -->
+    <div class="my-auto py-12">
+      <h1 class="font-serif text-[11vw] sm:text-[9vw] lg:text-[8.5vw] leading-[0.9] tracking-tight text-bone">
+        Creative<br>
+        <span class="italic text-accent relative inline-block">
+          Direction
+          <!-- Intersecting Spark Symbol -->
+          <svg class="absolute -right-12 sm:-right-16 top-2 w-8 sm:w-12 h-8 sm:h-12 text-accent animate-spin-slow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M12 2v20M2 12h20M5.636 5.636l12.728 12.728M5.636 18.364L18.364 5.636" stroke-linecap="round"/>
+          </svg>
+        </span><br>
+        &amp; Animation
+      </h1>
+    </div>
+
+    <!-- Metadata Bottom Panel -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pt-8 border-t border-white/5 items-end">
+      
+      <!-- Brief summary -->
+      <div class="max-w-xs">
+        <p class="text-sm text-mutedText leading-relaxed">
+          I am <strong class="text-bone font-medium">Gopa Dutta</strong>. I design premium brand systems, high-fidelity 2D animations, and strategic interface designs that command immediate attention.
+        </p>
+      </div>
+
+      <!-- Realtime Operations -->
+      <div class="flex flex-col gap-1 md:items-center">
+        <div class="flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
+          <span class="font-mono text-[10px] text-bone uppercase tracking-widest">Available for Freelance</span>
+        </div>
+        <p class="font-mono text-[9px] text-mutedText tracking-wider mt-1">OPERATING OUT OF INDIA &amp; WORLDWIDE</p>
+      </div>
+
+      <!-- Navigation Trigger -->
+      <div class="flex items-center gap-4 md:justify-end">
+        <a href="#projects" class="interactive-element group flex items-center gap-3 bg-white/5 hover:bg-accent hover:text-obsidian px-6 py-4 rounded-full border border-white/10 hover:border-transparent transition-all duration-300" data-hover-type="link">
+          <span class="font-mono text-[10px] uppercase font-bold tracking-widest">View Portfolio</span>
+          <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-y-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+          </svg>
+        </a>
+      </div>
+    </div>
+
+  </section>
+
+
+  <!-- ─────────────────────────────────────────────
+     MARQUEE SECTION (Interactive & Kinetic)
+  ───────────────────────────────────────────── -->
+  <div class="w-full py-8 border-y border-white/5 bg-surface/40 overflow-hidden group">
+    <div class="flex whitespace-nowrap animate-marquee">
+      <div class="flex gap-16 text-bone uppercase tracking-[0.2em] font-mono text-[11px] items-center pr-16">
+        <span>BRAND IDENTITY</span> <span class="text-accent text-lg">✦</span>
+        <span>MOTION GRAPHICS</span> <span class="text-accent text-lg">✦</span>
+        <span>2D ANIMATION</span> <span class="text-accent text-lg">✦</span>
+        <span>INTERFACE DESIGN</span> <span class="text-accent text-lg">✦</span>
+        <span>PREMIUM POSTERS</span> <span class="text-accent text-lg">✦</span>
+        <span>EXPLAINER FILMS</span> <span class="text-accent text-lg">✦</span>
+      </div>
+      <div class="flex gap-16 text-bone uppercase tracking-[0.2em] font-mono text-[11px] items-center pr-16">
+        <span>BRAND IDENTITY</span> <span class="text-accent text-lg">✦</span>
+        <span>MOTION GRAPHICS</span> <span class="text-accent text-lg">✦</span>
+        <span>2D ANIMATION</span> <span class="text-accent text-lg">✦</span>
+        <span>INTERFACE DESIGN</span> <span class="text-accent text-lg">✦</span>
+        <span>PREMIUM POSTERS</span> <span class="text-accent text-lg">✦</span>
+        <span>EXPLAINER FILMS</span> <span class="text-accent text-lg">✦</span>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ─────────────────────────────────────────────
+     STATS SECTION (Dynamic Counter Dashboard)
+  ───────────────────────────────────────────── -->
+  <section id="stats" class="max-w-7xl mx-auto px-6 md:px-12 py-16 grid grid-cols-2 lg:grid-cols-4 gap-1 divide-y lg:divide-y-0 lg:divide-x divide-white/5 border-b border-white/5">
+    
+    <!-- Stat Item 1 -->
+    <div class="reveal-element p-8 text-left flex flex-col justify-between h-40">
+      <span class="font-mono text-[10px] text-mutedText tracking-[0.2em] uppercase">PROJECTS COMPLETED</span>
+      <h3 class="font-serif text-5xl md:text-6xl text-bone mt-2 flex items-baseline gap-1">
+        <span class="cnt-number" data-target="40">0</span><span class="text-accent">+</span>
+      </h3>
+      <p class="text-xs text-mutedText/60 mt-2">Delivered bespoke design metrics</p>
+    </div>
+
+    <!-- Stat Item 2 -->
+    <div class="reveal-element p-8 text-left flex flex-col justify-between h-40">
+      <span class="font-mono text-[10px] text-mutedText tracking-[0.2em] uppercase">YEARS OF DEVOTION</span>
+      <h3 class="font-serif text-5xl md:text-6xl text-bone mt-2 flex items-baseline gap-1">
+        <span class="cnt-number" data-target="3">0</span><span class="text-accent">+</span>
+      </h3>
+      <p class="text-xs text-mutedText/60 mt-2">Polishing keyframes &amp; lines</p>
+    </div>
+
+    <!-- Stat Item 3 -->
+    <div class="reveal-element p-8 text-left flex flex-col justify-between h-40 pt-12 lg:pt-8">
+      <span class="font-mono text-[10px] text-mutedText tracking-[0.2em] uppercase">GLOBAL COLLABORATORS</span>
+      <h3 class="font-serif text-5xl md:text-6xl text-bone mt-2 flex items-baseline gap-1">
+        <span class="cnt-number" data-target="15">0</span><span class="text-accent">+</span>
+      </h3>
+      <p class="text-xs text-mutedText/60 mt-2">Ecosystems scaled globally</p>
+    </div>
+
+    <!-- Stat Item 4 -->
+    <div class="reveal-element p-8 text-left flex flex-col justify-between h-40 pt-12 lg:pt-8">
+      <span class="font-mono text-[10px] text-mutedText tracking-[0.2em] uppercase">CLIENT RETENTION</span>
+      <h3 class="font-serif text-5xl md:text-6xl text-bone mt-2 flex items-baseline gap-1">
+        <span class="cnt-number" data-target="100">0</span><span class="text-accent">%</span>
+      </h3>
+      <p class="text-xs text-mutedText/60 mt-2">Unparalleled creative delivery</p>
+    </div>
+
+  </section>
+
+
+  <!-- ─────────────────────────────────────────────
+     ABOUT SECTION (Premium Base64/Vector Fallback Setup)
+  ───────────────────────────────────────────── -->
+  <section id="about" class="max-w-7xl mx-auto px-6 md:px-12 py-24 md:py-32">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+      
+      <!-- Portrait Column -->
+      <div class="lg:col-span-5 reveal-element relative group">
+        
+        <!-- Amber-Gold ambient aura to match portrait tones -->
+        <div class="absolute inset-[-12px] rounded-2xl bg-gradient-to-tr from-amber-600/15 to-accent/15 opacity-70 blur-2xl group-hover:opacity-100 transition-all duration-700 pointer-events-none"></div>
+
+        <!-- Minimalist Frame -->
+        <div class="relative rounded-xl overflow-hidden border border-white/10 bg-neutral-900 group-hover:border-accent/40 transition-all duration-500 shadow-2xl">
+          
+          <!-- Designer Photo with Local Image -->
+          <img 
+            id="about-portrait"
+            src="image.png" 
+            alt="Gopa Dutta Portrait" 
+            class="w-full aspect-[3/4] object-cover filter saturate-[0.9] contrast-[1.02] group-hover:scale-102 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]"
+            onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAnIGhlaWdodD0iNDAwIiB2aWV3Qm94PSIwIDAgMzAwIDQwMCI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0iIzExMTExMyIvPjxjaXJjbGUgY3g9IjE1MCIgY3k9IjE2MCIgcj0iNjAiIGZpbGw9IiMyMjIyMjUiLz48cGF0aCBkPSJNMzAsMzUwIEMzMCwyNTAgMjcwLDI1MCAyNzAsMzUwIFoiIGZpbGw9IiMyMjIyMjUiLz48dGV4dCB4PSI1MCUiIHk9IjkwJSIgZmlsbD0iIzhhODk4NSIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkdvcGEgRHV0dGEgKFBvcnRyYWl0KTwvdGV4dD48L3N2Zz4=';"
+          >
+
+          <!-- Bottom Left Visual Tag -->
+          <div class="absolute bottom-4 left-4 bg-obsidian/90 backdrop-blur-md px-4 py-2 rounded border border-white/5">
+            <span class="font-mono text-[8px] text-accent tracking-widest block">CREATIVE DIRECTRESS</span>
+            <span class="font-serif text-sm text-bone">Gopa Dutta.</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Biography Text -->
+      <div class="lg:col-span-7 reveal-element flex flex-col gap-8 lg:pl-6">
+        
+        <div class="flex items-center gap-2">
+          <span class="font-mono text-[10px] text-accent uppercase tracking-[0.25em]">01. VISUAL STATEMENT</span>
+        </div>
+
+        <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl text-bone leading-tight">
+          Formulating designs that move and <span class="italic text-accent">breathe</span>.
+        </h2>
+
+        <div class="space-y-6 text-sm text-mutedText leading-relaxed">
+          <p>
+            I am <strong class="text-bone font-semibold">Gopa Dutta</strong>, a Graphic and Motion Designer based in India, operating globally. My focus is at the intersection of static branding layout and kinetic physics. I build structural brand components and align them with custom interactive motion guidelines.
+          </p>
+          <p>
+            From high-end jewelry brand identities to tech startup product assets and digital interface motions, my core principle is extreme precision. Every movement graph is custom-calibrated, and every logo vector is constructed with long-term strategy in mind.
+          </p>
+        </div>
+
+        <!-- Bento Style Tool Belt -->
+        <div class="border-t border-white/5 pt-8">
+          <h4 class="font-mono text-[9px] text-bone tracking-widest uppercase mb-4">PRODUCTION PIPELINE TOOLS</h4>
+          <div class="flex flex-wrap gap-2">
+            <span class="interactive-element px-4 py-2 bg-neutral-900 border border-white/5 rounded-full font-mono text-[10px] text-mutedText hover:border-accent hover:text-accent transition-all duration-300" data-hover-type="link">After Effects</span>
+            <span class="interactive-element px-4 py-2 bg-neutral-900 border border-white/5 rounded-full font-mono text-[10px] text-mutedText hover:border-accent hover:text-accent transition-all duration-300" data-hover-type="link">Premiere Pro</span>
+            <span class="interactive-element px-4 py-2 bg-neutral-900 border border-white/5 rounded-full font-mono text-[10px] text-mutedText hover:border-accent hover:text-accent transition-all duration-300" data-hover-type="link">Adobe Illustrator</span>
+            <span class="interactive-element px-4 py-2 bg-neutral-900 border border-white/5 rounded-full font-mono text-[10px] text-mutedText hover:border-accent hover:text-accent transition-all duration-300" data-hover-type="link">Photoshop</span>
+            <span class="interactive-element px-4 py-2 bg-neutral-900 border border-white/5 rounded-full font-mono text-[10px] text-mutedText hover:border-accent hover:text-accent transition-all duration-300" data-hover-type="link">Figma</span>
+            <span class="interactive-element px-4 py-2 bg-neutral-900 border border-white/5 rounded-full font-mono text-[10px] text-mutedText hover:border-accent hover:text-accent transition-all duration-300" data-hover-type="link">Blender</span>
+            <span class="interactive-element px-4 py-2 bg-neutral-900 border border-white/5 rounded-full font-mono text-[10px] text-mutedText hover:border-accent hover:text-accent transition-all duration-300" data-hover-type="link">InDesign</span>
+          </div>
+        </div>
+
+        <div class="pt-4">
+          <a href="https://www.behance.net/gopadutta" target="_blank" class="interactive-element group inline-flex items-center gap-3 border-b border-accent/40 pb-1.5 text-bone hover:text-accent transition-colors duration-300" data-hover-type="link">
+            <span class="font-mono text-[10px] tracking-widest uppercase font-bold">Explore Full Behance Portfolio</span>
+            <svg class="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ─────────────────────────────────────────────
+     SERVICES SECTION (Dynamic Bento Box Grid)
+  ───────────────────────────────────────────── -->
+  <section id="services" class="bg-surface py-24 md:py-32 border-y border-white/5">
+    <div class="max-w-7xl mx-auto px-6 md:px-12">
+      
+      <!-- Section Intro -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
+        <div>
+          <div class="flex items-center gap-2 mb-3">
+            <span class="font-mono text-[10px] text-accent uppercase tracking-[0.25em]">02. EXPERTISE ARCHIVE</span>
+          </div>
+          <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl text-bone">
+            High-Impact <span class="italic text-accent">Design Frameworks</span>
+          </h2>
+        </div>
+        <p class="text-sm text-mutedText max-w-sm leading-relaxed">
+          Injecting static brand assets with kinetic animation systems to create immersive digital experiences.
+        </p>
+      </div>
+
+      <!-- Bento Grid Layout -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- Service Card 1 -->
+        <div class="reveal-element premium-glass p-8 md:p-10 rounded-2xl flex flex-col justify-between min-h-[350px] relative overflow-hidden group hover:border-accent/30 transition-all duration-500">
+          <div class="absolute -right-8 -top-8 w-32 h-32 bg-accent/5 rounded-full blur-2xl group-hover:bg-accent/10 transition-colors duration-500"></div>
+          <div>
+            <div class="flex justify-between items-start">
+              <span class="font-mono text-xs text-accent/60">01 / BRAND PLATFORMS</span>
+              <svg class="w-8 h-8 text-accent opacity-75 group-hover:scale-110 transition-transform duration-500" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.2">
+                <circle cx="18" cy="18" r="15"/><circle cx="18" cy="18" r="8"/><circle cx="18" cy="18" r="2"/>
+              </svg>
+            </div>
+            <h3 class="font-serif text-2xl text-bone mt-8">Brand Architecture</h3>
+            <p class="text-xs text-mutedText mt-4 leading-relaxed">
+              Formulating premium corporate brand marks, custom typographic design systems, absolute design manuals, and collateral packages.
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-1.5 mt-8">
+            <span class="text-[8px] font-mono tracking-wider uppercase bg-white/5 text-mutedText px-2.5 py-1 rounded">Brand Identity</span>
+            <span class="text-[8px] font-mono tracking-wider uppercase bg-white/5 text-mutedText px-2.5 py-1 rounded">Style Systems</span>
+            <span class="text-[8px] font-mono tracking-wider uppercase bg-white/5 text-mutedText px-2.5 py-1 rounded">Brand Manuals</span>
+          </div>
+        </div>
+
+        <!-- Service Card 2 -->
+        <div class="reveal-element premium-glass p-8 md:p-10 rounded-2xl flex flex-col justify-between min-h-[350px] relative overflow-hidden group hover:border-accent/30 transition-all duration-500">
+          <div class="absolute -right-8 -top-8 w-32 h-32 bg-accent/5 rounded-full blur-2xl group-hover:bg-accent/10 transition-colors duration-500"></div>
+          <div>
+            <div class="flex justify-between items-start">
+              <span class="font-mono text-xs text-accent/60">02 / MOTION LAB</span>
+              <svg class="w-8 h-8 text-accent opacity-75 group-hover:scale-110 transition-transform duration-500" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.2">
+                <polygon points="10,6 30,18 10,30"/><line x1="10" y1="6" x2="10" y2="30"/>
+              </svg>
+            </div>
+            <h3 class="font-serif text-2xl text-bone mt-8">Motion Graphics</h3>
+            <p class="text-xs text-mutedText mt-4 leading-relaxed">
+              Highly calibrated vector animations, product explainer movies, cinematic title assets, and kinetic web graphics using custom timeline curves.
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-1.5 mt-8">
+            <span class="text-[8px] font-mono tracking-wider uppercase bg-white/5 text-mutedText px-2.5 py-1 rounded">2D Keyframes</span>
+            <span class="text-[8px] font-mono tracking-wider uppercase bg-white/5 text-mutedText px-2.5 py-1 rounded">Explainer Systems</span>
+            <span class="text-[8px] font-mono tracking-wider uppercase bg-white/5 text-mutedText px-2.5 py-1 rounded">Lottie Delivery</span>
+          </div>
+        </div>
+
+        <!-- Service Card 3 -->
+        <div class="reveal-element premium-glass p-8 md:p-10 rounded-2xl flex flex-col justify-between min-h-[350px] relative overflow-hidden group hover:border-accent/30 transition-all duration-500">
+          <div class="absolute -right-8 -top-8 w-32 h-32 bg-accent/5 rounded-full blur-2xl group-hover:bg-accent/10 transition-colors duration-500"></div>
+          <div>
+            <div class="flex justify-between items-start">
+              <span class="font-mono text-xs text-accent/60">03 / PRODUCT EXPERIENCE</span>
+              <svg class="w-8 h-8 text-accent opacity-75 group-hover:scale-110 transition-transform duration-500" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.2">
+                <rect x="4" y="6" width="28" height="20" rx="1"/><line x1="8" y1="30" x2="28" y2="30"/><line x1="18" y1="26" x2="18" y2="30"/>
+              </svg>
+            </div>
+            <h3 class="font-serif text-2xl text-bone mt-8">Digital UI Experience</h3>
+            <p class="text-xs text-mutedText mt-4 leading-relaxed">
+              Clean, interactive wireframes and premium high-fidelity user flows optimized for modern web and application interfaces.
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-1.5 mt-8">
+            <span class="text-[8px] font-mono tracking-wider uppercase bg-white/5 text-mutedText px-2.5 py-1 rounded">Figma Frameworks</span>
+            <span class="text-[8px] font-mono tracking-wider uppercase bg-white/5 text-mutedText px-2.5 py-1 rounded">Interface Journeys</span>
+            <span class="text-[8px] font-mono tracking-wider uppercase bg-white/5 text-mutedText px-2.5 py-1 rounded">Prototyping</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ─────────────────────────────────────────────
+     PORTFOLIO GRID & INTERACTIVE SHOWCASE
+  ───────────────────────────────────────────── -->
+  <section id="projects" class="max-w-7xl mx-auto px-6 md:px-12 py-24 md:py-32">
+    
+    <!-- Header Block & Category Controls -->
+    <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-16">
+      <div>
+        <div class="flex items-center gap-2 mb-3">
+          <span class="font-mono text-[10px] text-accent uppercase tracking-[0.25em]">03. VERIFIED ARTIFACTS</span>
+        </div>
+        <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl text-bone">
+          Selected <span class="italic text-accent">Deployments</span>
+        </h2>
+      </div>
+
+      <!-- Live Category Selector -->
+      <div class="flex flex-wrap gap-2">
+        <button class="interactive-element filter-btn active font-mono text-[9px] tracking-widest uppercase px-5 py-2.5 rounded-full border border-accent bg-accent text-obsidian font-bold transition-all duration-300" data-cat="all" data-hover-type="link">ALL</button>
+        <button class="interactive-element filter-btn font-mono text-[9px] tracking-widest uppercase px-5 py-2.5 rounded-full border border-white/10 hover:border-accent text-mutedText hover:text-bone transition-all duration-300" data-cat="graphic" data-hover-type="link">GRAPHICS</button>
+        <button class="interactive-element filter-btn font-mono text-[9px] tracking-widest uppercase px-5 py-2.5 rounded-full border border-white/10 hover:border-accent text-mutedText hover:text-bone transition-all duration-300" data-cat="motion" data-hover-type="link">MOTION</button>
+        <button class="interactive-element filter-btn font-mono text-[9px] tracking-widest uppercase px-5 py-2.5 rounded-full border border-white/10 hover:border-accent text-mutedText hover:text-bone transition-all duration-300" data-cat="ui" data-hover-type="link">UI / DESIGN</button>
+      </div>
+    </div>
+
+    <!-- Interactive Grid System -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-start" id="portfolio-grid">
+      
+      <!-- Project Item 1 -->
+      <div class="project-card reveal-element bg-surface rounded-xl overflow-hidden border border-white/5 group hover:border-accent/20 transition-all duration-500" data-category="ui">
+        <div class="relative overflow-hidden aspect-[4/3] bg-neutral-900">
+          <img 
+            src="https://mir-s3-cdn-cf.behance.net/projects/404/24d3ef244133067.6988ee98e71da.png" 
+            alt="Men's Grooming E-commerce UI" 
+            class="interactive-element w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            data-hover-type="project"
+            referrerpolicy="no-referrer"
+            onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');"
+          >
+          <div class="fallback-graphic hidden absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-amber-600/10 to-transparent p-6 text-center">
+            <span class="text-4xl mb-3">💻</span>
+            <span class="font-mono text-[10px] text-accent tracking-widest uppercase">UX &amp; DESIGN SYSTEM</span>
+          </div>
+          <span class="absolute top-4 left-4 font-mono text-[8px] bg-obsidian/80 backdrop-blur text-accent border border-white/10 px-2.5 py-1 rounded">UI DESIGN</span>
+        </div>
+        <div class="p-6">
+          <span class="font-mono text-[9px] text-mutedText uppercase tracking-widest">E-COMMERCE INTERFACE</span>
+          <h3 class="font-serif text-xl text-bone mt-2 group-hover:text-accent transition-colors duration-300">Men's Grooming UI Concept</h3>
+          <p class="text-xs text-mutedText/80 mt-2 leading-relaxed">Refined dark-mode user interface exploring visual grids, contrast layers, and dynamic e-commerce flows.</p>
+          <div class="flex items-center justify-between mt-6 pt-4 border-t border-white/5">
+            <span class="font-mono text-[9px] text-mutedText">1,414 Views</span>
+            <button class="interactive-element view-study-btn text-[9px] font-mono font-bold tracking-widest text-accent uppercase hover:text-bone transition-colors" data-project-idx="0" data-hover-type="link">Study Design ↗</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project Item 2 -->
+      <div class="project-card reveal-element bg-surface rounded-xl overflow-hidden border border-white/5 group hover:border-accent/20 transition-all duration-500" data-category="graphic">
+        <div class="relative overflow-hidden aspect-[4/3] bg-neutral-900">
+          <img 
+            src="https://mir-s3-cdn-cf.behance.net/projects/404/b288f5243751775.6989037d6ccf8.png" 
+            alt="Floriaa Jewelry branding" 
+            class="interactive-element w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            data-hover-type="project"
+            referrerpolicy="no-referrer"
+            onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');"
+          >
+          <div class="fallback-graphic hidden absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-indigo-900/10 to-transparent p-6 text-center">
+            <span class="text-4xl mb-3">💍</span>
+            <span class="font-mono text-[10px] text-accent tracking-widest uppercase">BRAND ARCHITECTURE</span>
+          </div>
+          <span class="absolute top-4 left-4 font-mono text-[8px] bg-obsidian/80 backdrop-blur text-accent border border-white/10 px-2.5 py-1 rounded">BRAND SYSTEM</span>
+        </div>
+        <div class="p-6">
+          <span class="font-mono text-[9px] text-mutedText uppercase tracking-widest">LUXURY BRANDING</span>
+          <h3 class="font-serif text-xl text-bone mt-2 group-hover:text-accent transition-colors duration-300">Floriaa — Jewelry Identity</h3>
+          <p class="text-xs text-mutedText/80 mt-2 leading-relaxed">Elegant, luxury serif logotypes, customized brand style guides, packaging assets, and visual guides.</p>
+          <div class="flex items-center justify-between mt-6 pt-4 border-t border-white/5">
+            <span class="font-mono text-[9px] text-mutedText">104 Views</span>
+            <button class="interactive-element view-study-btn text-[9px] font-mono font-bold tracking-widest text-accent uppercase hover:text-bone transition-colors" data-project-idx="1" data-hover-type="link">Study Design ↗</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project Item 3 -->
+      <div class="project-card reveal-element bg-surface rounded-xl overflow-hidden border border-white/5 group hover:border-accent/20 transition-all duration-500" data-category="graphic">
+        <div class="relative overflow-hidden aspect-[4/3] bg-neutral-900">
+          <img 
+            src="https://mir-s3-cdn-cf.behance.net/projects/404/f1b814243272337.Y3JvcCwxMTQ1LDg5NSwyOCww.jpg" 
+            alt="Cafe Brew identity design" 
+            class="interactive-element w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            data-hover-type="project"
+            referrerpolicy="no-referrer"
+            onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');"
+          >
+          <div class="fallback-graphic hidden absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-amber-900/10 to-transparent p-6 text-center">
+            <span class="text-4xl mb-3">☕</span>
+            <span class="font-mono text-[10px] text-accent tracking-widest uppercase">BRAND SYSTEM</span>
+          </div>
+          <span class="absolute top-4 left-4 font-mono text-[8px] bg-obsidian/80 backdrop-blur text-accent border border-white/10 px-2.5 py-1 rounded">PACKAGING</span>
+        </div>
+        <div class="p-6">
+          <span class="font-mono text-[9px] text-mutedText uppercase tracking-widest">ARTISAN COFFEE SYSTEM</span>
+          <h3 class="font-serif text-xl text-bone mt-2 group-hover:text-accent transition-colors duration-300">Cafe Brew Identity</h3>
+          <p class="text-xs text-mutedText/80 mt-2 leading-relaxed">Modern visual brand elements designed for print labels, packaging boxes, and merchandise lines.</p>
+          <div class="flex items-center justify-between mt-6 pt-4 border-t border-white/5">
+            <span class="font-mono text-[9px] text-mutedText">26 Views</span>
+            <button class="interactive-element view-study-btn text-[9px] font-mono font-bold tracking-widest text-accent uppercase hover:text-bone transition-colors" data-project-idx="2" data-hover-type="link">Study Design ↗</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project Item 4 -->
+      <div class="project-card reveal-element bg-surface rounded-xl overflow-hidden border border-white/5 group hover:border-accent/20 transition-all duration-500" data-category="motion">
+        <div class="relative overflow-hidden aspect-[4/3] bg-neutral-900">
+          <img 
+            src="https://mir-s3-cdn-cf.behance.net/projects/404/ad8296194345889.Y3JvcCwxMzgwLDEwODAsMjcwLDA.png" 
+            alt="2D Animation motion showreel" 
+            class="interactive-element w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            data-hover-type="project"
+            referrerpolicy="no-referrer"
+            onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');"
+          >
+          <div class="fallback-graphic hidden absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-rose-950/10 to-transparent p-6 text-center">
+            <span class="text-4xl mb-3">🎬</span>
+            <span class="font-mono text-[10px] text-accent tracking-widest uppercase">MOTION LAB GRAPHICS</span>
+          </div>
+          <span class="absolute top-4 left-4 font-mono text-[8px] bg-obsidian/80 backdrop-blur text-accent border border-white/10 px-2.5 py-1 rounded">2D MOTION</span>
+        </div>
+        <div class="p-6">
+          <span class="font-mono text-[9px] text-mutedText uppercase tracking-widest">KINETIC ANIMATION</span>
+          <h3 class="font-serif text-xl text-bone mt-2 group-hover:text-accent transition-colors duration-300">2D Animation Showreel</h3>
+          <p class="text-xs text-mutedText/80 mt-2 leading-relaxed">A sequence of keyframe animations exploring modern visual structures and vector motion dynamics.</p>
+          <div class="flex items-center justify-between mt-6 pt-4 border-t border-white/5">
+            <span class="font-mono text-[9px] text-mutedText">53 Views</span>
+            <button class="interactive-element view-study-btn text-[9px] font-mono font-bold tracking-widest text-accent uppercase hover:text-bone transition-colors" data-project-idx="3" data-hover-type="link">Study Design ↗</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project Item 5 -->
+      <div class="project-card reveal-element bg-surface rounded-xl overflow-hidden border border-white/5 group hover:border-accent/20 transition-all duration-500" data-category="graphic">
+        <div class="relative overflow-hidden aspect-[4/3] bg-neutral-900">
+          <img 
+            src="https://mir-s3-cdn-cf.behance.net/projects/404/1fcf8f243123445.Y3JvcCwxMDgwLDg0NCwwLDUzNw.png" 
+            alt="Modern vector illustration series" 
+            class="interactive-element w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            data-hover-type="project"
+            referrerpolicy="no-referrer"
+            onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');"
+          >
+          <div class="fallback-graphic hidden absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-violet-950/10 to-transparent p-6 text-center">
+            <span class="text-4xl mb-3">🎨</span>
+            <span class="font-mono text-[10px] text-accent tracking-widest uppercase">VECTOR LAB DESIGNS</span>
+          </div>
+          <span class="absolute top-4 left-4 font-mono text-[8px] bg-obsidian/80 backdrop-blur text-accent border border-white/10 px-2.5 py-1 rounded">ILLUSTRATION</span>
+        </div>
+        <div class="p-6">
+          <span class="font-mono text-[9px] text-mutedText uppercase tracking-widest">CREATIVE GEOMETRICS</span>
+          <h3 class="font-serif text-xl text-bone mt-2 group-hover:text-accent transition-colors duration-300">Modern Vector Series</h3>
+          <p class="text-xs text-mutedText/80 mt-2 leading-relaxed">Highly detailed organic vector art, exploring color theories, layout patterns, and depth lines.</p>
+          <div class="flex items-center justify-between mt-6 pt-4 border-t border-white/5">
+            <span class="font-mono text-[9px] text-mutedText">19 Views</span>
+            <button class="interactive-element view-study-btn text-[9px] font-mono font-bold tracking-widest text-accent uppercase hover:text-bone transition-colors" data-project-idx="4" data-hover-type="link">Study Design ↗</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project Item 6 -->
+      <div class="project-card reveal-element bg-surface rounded-xl overflow-hidden border border-white/5 group hover:border-accent/20 transition-all duration-500" data-category="graphic">
+        <div class="relative overflow-hidden aspect-[4/3] bg-neutral-900">
+          <img 
+            src="https://mir-s3-cdn-cf.behance.net/projects/404/4a4571242771853.698558fe51c0e.png" 
+            alt="BotX AI Brand logo system" 
+            class="interactive-element w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            data-hover-type="project"
+            referrerpolicy="no-referrer"
+            onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');"
+          >
+          <div class="fallback-graphic hidden absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-teal-950/10 to-transparent p-6 text-center">
+            <span class="text-4xl mb-3">🤖</span>
+            <span class="font-mono text-[10px] text-accent tracking-widest uppercase">AI GRAPHICS SYSTEM</span>
+          </div>
+          <span class="absolute top-4 left-4 font-mono text-[8px] bg-obsidian/80 backdrop-blur text-accent border border-white/10 px-2.5 py-1 rounded">LOGO ARCH</span>
+        </div>
+        <div class="p-6">
+          <span class="font-mono text-[9px] text-mutedText uppercase tracking-widest">TECHNICAL INTELLECT</span>
+          <h3 class="font-serif text-xl text-bone mt-2 group-hover:text-accent transition-colors duration-300">BotX — AI Brand Identity</h3>
+          <p class="text-xs text-mutedText/80 mt-2 leading-relaxed">Slick brand mark engineered around modular mathematical nodes, network lines, and clean layouts.</p>
+          <div class="flex items-center justify-between mt-6 pt-4 border-t border-white/5">
+            <span class="font-mono text-[9px] text-mutedText">31 Views</span>
+            <button class="interactive-element view-study-btn text-[9px] font-mono font-bold tracking-widest text-accent uppercase hover:text-bone transition-colors" data-project-idx="5" data-hover-type="link">Study Design ↗</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Global External Redirection -->
+    <div class="text-center mt-16 reveal-element">
+      <a href="https://www.behance.net/gopadutta" target="_blank" class="interactive-element inline-flex items-center gap-4 bg-transparent border border-white/10 hover:border-accent text-bone hover:text-accent px-8 py-4 rounded-full transition-all duration-300" data-hover-type="link">
+        <span class="font-mono text-xs uppercase tracking-widest font-bold">Inspect Complete Index on Behance</span>
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+      </a>
+    </div>
+
+  </section>
+
+
+  <!-- ─────────────────────────────────────────────
+     INTERACTIVE PROJECT PLANNER & BUDGET ESTIMATOR
+  ───────────────────────────────────────────── -->
+  <section id="estimator" class="bg-surface py-24 md:py-32 border-y border-white/5">
+    <div class="max-w-4xl mx-auto px-6">
+      
+      <!-- Section Intro Header -->
+      <div class="text-center mb-16 reveal-element">
+        <div class="flex items-center justify-center gap-2 mb-3">
+          <span class="font-mono text-[10px] text-accent uppercase tracking-[0.25em]">04. PROJECT PLANNING ENGINE</span>
+        </div>
+        <h2 class="font-serif text-4xl md:text-5xl text-bone">
+          Formulate Your <span class="italic text-accent">Investment Level</span>
+        </h2>
+        <p class="text-xs text-mutedText mt-4 max-w-md mx-auto leading-relaxed">
+          Toggle the corporate services your initiative calls for and slide the timeline scale to produce an instant investment approximation.
+        </p>
+      </div>
+
+      <!-- Live Calculation UI Module -->
+      <div class="reveal-element premium-glass rounded-2xl p-8 md:p-12 relative overflow-hidden">
+        
+        <!-- Subtle Glow Layer -->
+        <div class="absolute -left-16 -bottom-16 w-48 h-48 bg-accent/5 rounded-full blur-3xl"></div>
+
+        <!-- 1: Category Toggles -->
+        <div class="mb-10">
+          <h4 class="font-mono text-[10px] text-bone tracking-widest uppercase mb-4">1. CHOOSE DESIGN MODULES</h4>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            
+            <button class="interactive-element planner-system-btn group p-4 rounded-xl bg-obsidian border border-white/5 hover:border-accent/40 text-left transition-all duration-300" data-price="1200" data-sysname="Brand Architecture" data-hover-type="link">
+              <span class="block font-serif text-lg text-mutedText group-hover:text-bone transition-colors">Brand Identity</span>
+              <span class="block font-mono text-[9px] text-mutedText/50 mt-1">Starting $1,200</span>
+            </button>
+
+            <button class="interactive-element planner-system-btn group p-4 rounded-xl bg-obsidian border border-white/5 hover:border-accent/40 text-left transition-all duration-300" data-price="1500" data-sysname="Motion Graphics" data-hover-type="link">
+              <span class="block font-serif text-lg text-mutedText group-hover:text-bone transition-colors">Motion &amp; 2D</span>
+              <span class="block font-mono text-[9px] text-mutedText/50 mt-1">Starting $1,500</span>
+            </button>
+
+            <button class="interactive-element planner-system-btn group p-4 rounded-xl bg-obsidian border border-white/5 hover:border-accent/40 text-left transition-all duration-300" data-price="1000" data-sysname="Digital Experience" data-hover-type="link">
+              <span class="block font-serif text-lg text-mutedText group-hover:text-bone transition-colors">UI Experience</span>
+              <span class="block font-mono text-[9px] text-mutedText/50 mt-1">Starting $1,000</span>
+            </button>
+
+          </div>
+        </div>
+
+        <!-- 2: Timeline Controller -->
+        <div class="mb-10">
+          <div class="flex justify-between items-center mb-4">
+            <h4 class="font-mono text-[10px] text-bone tracking-widest uppercase">2. DELIVERY SPEED</h4>
+            <span id="slider-value" class="font-mono text-xs text-accent">4 Weeks</span>
+          </div>
+          <input type="range" min="2" max="12" value="4" class="interactive-element w-full accent-accent bg-neutral-900 h-1.5 rounded-lg appearance-none" id="timeframe-range" data-hover-type="link">
+          <div class="flex justify-between font-mono text-[8px] text-mutedText/60 mt-2">
+            <span>2 Weeks (Accelerated - high velocity fee applies)</span>
+            <span>12 Weeks (Extended project window)</span>
+          </div>
+        </div>
+
+        <!-- Metric Output Interface -->
+        <div class="border-t border-white/5 pt-8 flex flex-col md:flex-row md:items-center justify-between gap-6">
+          <div>
+            <span class="font-mono text-[9px] text-mutedText/80 block uppercase tracking-widest">APPROXIMATED INVESTMENT RATE</span>
+            <div class="flex items-baseline gap-1 mt-1">
+              <span class="font-mono text-xl text-mutedText/50">$</span>
+              <span id="estimated-total" class="font-serif text-4xl md:text-5xl text-bone">0</span>
+              <span class="font-mono text-xs text-mutedText">USD</span>
+            </div>
+            <p class="text-[9px] text-mutedText/50 mt-1">* Estimates are based on project complexity and accelerated timeline calculations.</p>
+          </div>
+
+          <button id="planner-submit-btn" class="interactive-element inline-flex items-center justify-center gap-3 bg-accent text-obsidian hover:bg-bone hover:text-obsidian px-8 py-4 rounded-xl font-mono text-xs uppercase font-bold tracking-widest transition-all duration-300 shadow-lg" data-hover-type="link">
+            Sync Plan &amp; Request Quote
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ─────────────────────────────────────────────
+     CLIENT ENDORSEMENTS (Testimonial Grid)
+  ───────────────────────────────────────────── -->
+  <section class="max-w-7xl mx-auto px-6 md:px-12 py-24 md:py-32 border-b border-white/5">
+    
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
+      <div>
+        <div class="flex items-center gap-2 mb-3">
+          <span class="font-mono text-[10px] text-accent uppercase tracking-[0.25em]">05. CLIENT ENDORSEMENTS</span>
+        </div>
+        <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl text-bone">
+          Verified <span class="italic text-accent">Testimonials</span>
+        </h2>
+      </div>
+    </div>
+
+    <!-- Endorsements Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      
+      <!-- Endorsement card 1 -->
+      <div class="reveal-element bg-surface border border-white/5 rounded-2xl p-8 flex flex-col justify-between group hover:border-accent/10 transition-colors duration-500">
+        <div>
+          <!-- Star matrix -->
+          <div class="flex gap-1 text-accent mb-6">
+            <span class="text-xs">✦</span><span class="text-xs">✦</span><span class="text-xs">✦</span><span class="text-xs">✦</span><span class="text-xs">✦</span>
+          </div>
+          <p class="text-sm text-mutedText leading-relaxed italic">
+            "Gopa's work on our brand identity was outstanding. The Floriaa jewelry branding captured exactly the luxury feel we wanted — elegant, timeless, and unique."
+          </p>
+        </div>
+        <div class="border-t border-white/5 pt-6 mt-8 flex items-center gap-4">
+          <div class="w-10 h-10 rounded-full bg-neutral-900 border border-white/10 flex items-center justify-center font-serif text-xs text-accent">💍</div>
+          <div>
+            <h4 class="font-serif text-base text-bone">Priya Mehta</h4>
+            <span class="font-mono text-[9px] text-mutedText uppercase tracking-widest">FOUNDER, FLORIAA JEWELRY</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Endorsement card 2 -->
+      <div class="reveal-element bg-surface border border-white/5 rounded-2xl p-8 flex flex-col justify-between group hover:border-accent/10 transition-colors duration-500">
+        <div>
+          <div class="flex gap-1 text-accent mb-6">
+            <span class="text-xs">✦</span><span class="text-xs">✦</span><span class="text-xs">✦</span><span class="text-xs">✦</span><span class="text-xs">✦</span>
+          </div>
+          <p class="text-sm text-mutedText leading-relaxed italic">
+            "The 2D animation Gopa created for our product explainer was incredible. Smooth, professional, and delivered on time. Our engagement rates went through the roof!"
+          </p>
+        </div>
+        <div class="border-t border-white/5 pt-6 mt-8 flex items-center gap-4">
+          <div class="w-10 h-10 rounded-full bg-neutral-900 border border-white/10 flex items-center justify-center font-serif text-xs text-accent">🎬</div>
+          <div>
+            <h4 class="font-serif text-base text-bone">Rahul Sharma</h4>
+            <span class="font-mono text-[9px] text-mutedText uppercase tracking-widest">CEO, TECHVIBE STUDIO</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Endorsement card 3 -->
+      <div class="reveal-element bg-surface border border-white/5 rounded-2xl p-8 flex flex-col justify-between group hover:border-accent/10 transition-colors duration-500">
+        <div>
+          <div class="flex gap-1 text-accent mb-6">
+            <span class="text-xs">✦</span><span class="text-xs">✦</span><span class="text-xs">✦</span><span class="text-xs">✦</span><span class="text-xs">✦</span>
+          </div>
+          <p class="text-sm text-mutedText leading-relaxed italic">
+            "Gopa designed our social media campaign and the results were phenomenal. Creative, on-brand, and fast turnaround. Will definitely work together again!"
+          </p>
+        </div>
+        <div class="border-t border-white/5 pt-6 mt-8 flex items-center gap-4">
+          <div class="w-10 h-10 rounded-full bg-neutral-900 border border-white/10 flex items-center justify-center font-serif text-xs text-accent">📱</div>
+          <div>
+            <h4 class="font-serif text-base text-bone">Ananya Das</h4>
+            <span class="font-mono text-[9px] text-mutedText uppercase tracking-widest">MARKETING HEAD, EVENTPRO</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ─────────────────────────────────────────────
+     CONTACT SECTION (Refined Communication Center)
+  ───────────────────────────────────────────── -->
+  <section id="contact" class="max-w-7xl mx-auto px-6 md:px-12 py-24 md:py-32">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+      
+      <!-- Informative Side Column -->
+      <div class="lg:col-span-5 reveal-element flex flex-col gap-8">
+        <div>
+          <div class="flex items-center gap-2 mb-3">
+            <span class="font-mono text-[10px] text-accent uppercase tracking-[0.25em]">06. DIRECT CHANNELS</span>
+          </div>
+          <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl text-bone leading-tight">
+            Initiate a <span class="italic text-accent">Dialogue</span>
+          </h2>
+          <p class="text-sm text-mutedText mt-4 leading-relaxed">
+            Whether launching a comprehensive branding overhaul or seeking fluid kinetic system design, let's create something memorable.
+          </p>
+        </div>
+
+        <!-- Dynamic Action Bars -->
+        <div class="flex flex-col gap-4 mt-4">
+          
+          <div class="flex items-center gap-4 p-4 rounded-xl bg-surface border border-white/5 hover:border-accent/20 transition-all duration-300">
+            <div class="w-10 h-10 rounded-lg bg-neutral-900 flex items-center justify-center text-accent font-mono text-sm">@</div>
+            <div>
+              <span class="block font-mono text-[8px] text-mutedText uppercase tracking-widest">SEND DIRECT EMAIL</span>
+              <a href="mailto:gopadutta@email.com" class="interactive-element text-sm text-bone hover:text-accent font-semibold transition-colors" data-hover-type="link">gopadutta@email.com</a>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-4 p-4 rounded-xl bg-surface border border-white/5 hover:border-accent/20 transition-all duration-300">
+            <div class="w-10 h-10 rounded-lg bg-neutral-900 flex items-center justify-center text-accent font-mono text-sm">↗</div>
+            <div>
+              <span class="block font-mono text-[8px] text-mutedText uppercase tracking-widest">MOBILE CHAT</span>
+              <a href="https://wa.me/919876543210" target="_blank" class="interactive-element text-sm text-bone hover:text-accent font-semibold transition-colors" data-hover-type="link">+91 98765 43210</a>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-4 p-4 rounded-xl bg-surface border border-white/5 hover:border-accent/20 transition-all duration-300">
+            <div class="w-10 h-10 rounded-lg bg-neutral-900 flex items-center justify-center text-accent font-mono text-sm">◉</div>
+            <div>
+              <span class="block font-mono text-[8px] text-mutedText uppercase tracking-widest">GEOGRAPHY</span>
+              <span class="text-sm text-bone font-semibold">Kolkata, India — Worldwide Operation</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Social Indexes -->
+        <div class="pt-6">
+          <span class="block font-mono text-[8px] text-mutedText uppercase tracking-[0.2em] mb-4">PORTFOLIO REGISTERS</span>
+          <div class="flex flex-wrap gap-2">
+            <a href="https://www.behance.net/gopadutta" target="_blank" class="interactive-element px-4 py-2 bg-neutral-900 border border-white/5 hover:border-accent/40 text-bone hover:text-accent rounded font-mono text-[10px] tracking-widest uppercase transition-all duration-300" data-hover-type="link">Behance ↗</a>
+            <a href="#" target="_blank" class="interactive-element px-4 py-2 bg-neutral-900 border border-white/5 hover:border-accent/40 text-bone hover:text-accent rounded font-mono text-[10px] tracking-widest uppercase transition-all duration-300" data-hover-type="link">Instagram ↗</a>
+            <a href="#" target="_blank" class="interactive-element px-4 py-2 bg-neutral-900 border border-white/5 hover:border-accent/40 text-bone hover:text-accent rounded font-mono text-[10px] tracking-widest uppercase transition-all duration-300" data-hover-type="link">LinkedIn ↗</a>
+            <a href="#" target="_blank" class="interactive-element px-4 py-2 bg-neutral-900 border border-white/5 hover:border-accent/40 text-bone hover:text-accent rounded font-mono text-[10px] tracking-widest uppercase transition-all duration-300" data-hover-type="link">Dribbble ↗</a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Live Messaging Form -->
+      <div class="lg:col-span-7 reveal-element bg-surface rounded-2xl border border-white/5 p-8 md:p-12 relative overflow-hidden">
+        <form id="contact-form" onsubmit="event.preventDefault(); sendMsg();" class="flex flex-col gap-8">
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="flex flex-col gap-2">
+              <label class="font-mono text-[9px] text-mutedText uppercase tracking-widest">Client Name</label>
+              <input type="text" id="form-name" placeholder="E.g. Alexander Cole" required class="bg-transparent border-b border-white/15 focus:border-accent text-sm text-bone py-2 placeholder:text-mutedText/30 focus:outline-none transition-colors duration-300">
+            </div>
+            <div class="flex flex-col gap-2">
+              <label class="font-mono text-[9px] text-mutedText uppercase tracking-widest">Email Address</label>
+              <input type="email" id="form-email" placeholder="alex@corporatesystem.com" required class="bg-transparent border-b border-white/15 focus:border-accent text-sm text-bone py-2 placeholder:text-mutedText/30 focus:outline-none transition-colors duration-300">
+            </div>
+          </div>
+
+          <div class="flex flex-col gap-2">
+            <label class="font-mono text-[9px] text-mutedText uppercase tracking-widest">Services Needed</label>
+            <input type="text" id="form-service" placeholder="Brand Identity, explainer video editing, UI assets..." required class="bg-transparent border-b border-white/15 focus:border-accent text-sm text-bone py-2 placeholder:text-mutedText/30 focus:outline-none transition-colors duration-300">
+          </div>
+
+          <div class="flex flex-col gap-2">
+            <label class="font-mono text-[9px] text-mutedText uppercase tracking-widest">Message Details</label>
+            <textarea id="form-message" rows="4" placeholder="Elaborate on objectives, timeline expectations, and budget levels..." required class="bg-transparent border-b border-white/15 focus:border-accent text-sm text-bone py-2 placeholder:text-mutedText/30 focus:outline-none resize-none transition-colors duration-300"></textarea>
+          </div>
+
+          <button type="submit" id="form-submit-btn" class="w-full inline-flex items-center justify-center gap-3 bg-accent text-obsidian hover:bg-bone hover:text-obsidian py-4 rounded-xl font-mono text-xs uppercase font-bold tracking-widest transition-all duration-300 shadow-lg">
+            Dispatch Message
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </button>
+
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ─────────────────────────────────────────────
+     FOOTER SECTION (Dynamic Credits)
+  ───────────────────────────────────────────── -->
+  <footer class="border-t border-white/5 bg-surface/40 py-12 px-6 md:px-12">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
+      
+      <div class="flex items-center gap-2">
+        <span class="font-serif text-lg font-bold text-bone">Gopa Dutta<span class="text-accent">.</span></span>
+      </div>
+
+      <p class="font-mono text-[9px] text-mutedText/50 tracking-wider">
+        &copy; 2026 Gopa Dutta &bull; Designed &amp; Coded in India &bull; All Rights Reserved.
+      </p>
+
+      <div class="flex gap-4">
+        <a href="#hero" class="interactive-element font-mono text-[9px] text-mutedText hover:text-accent tracking-widest uppercase transition-colors" data-hover-type="link">Return Top ↑</a>
+      </div>
+
+    </div>
+  </footer>
+
+
+  <!-- ─────────────────────────────────────────────
+     IMMERSIVE CASE STUDY MODAL (Native dialog)
+  ───────────────────────────────────────────── -->
+  <dialog id="case-study-modal" closedby="any" class="premium-glass w-full max-w-4xl max-h-[90vh] rounded-2xl overflow-y-auto relative p-6 md:p-12 text-left shadow-2xl backdrop:bg-obsidian/90 backdrop:backdrop-blur-md border border-white/5 opacity-0 transition-all duration-300 open:opacity-100 open:scale-100 scale-95">
+    
+    <!-- Close Button -->
+    <button id="close-modal-btn" class="absolute top-6 right-6 w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-mutedText hover:text-accent hover:border-accent/40 transition-colors focus:outline-none focus:border-accent" aria-label="Close Case Study">
+      <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"/></svg>
+    </button>
+
+    <!-- Content Injection Container -->
+    <div id="modal-content-area" class="space-y-8">
+      <!-- Content gets loaded asynchronously on trigger -->
+    </div>
+
+  </dialog>
+
+
+  <!-- 
+    ====================================================================
+    JAVASCRIPT SOURCE CODE (Can be exported directly to script.js)
+    ====================================================================
+  -->
+  <script>
+    /* ─────────────────────────────────────────────
+       1. HIGH-PERFORMANCE NON-BLOCKING AUDIO ENGINE
+    ───────────────────────────────────────────── */
+    let audioCtx = null;
+
+    function initAudio() {
+      if (!audioCtx) {
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      }
+      if (audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+    }
+
+    function playClick() {
+      try {
+        initAudio();
+        if (!audioCtx || audioCtx.state === 'suspended') return;
+
+        const osc = audioCtx.createOscillator();
+        const gainNode = audioCtx.createGain();
+
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(1200, audioCtx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(400, audioCtx.currentTime + 0.05);
+
+        gainNode.gain.setValueAtTime(0.005, audioCtx.currentTime);
+        gainNode.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 0.06);
+
+        osc.connect(gainNode);
+        gainNode.connect(audioCtx.destination);
+
+        osc.start();
+        osc.stop(audioCtx.currentTime + 0.06);
+      } catch (e) {
+        // Fallback silently without throwing blocking errors
+      }
+    }
+
+    function playSuccess() {
+      try {
+        initAudio();
+        if (!audioCtx || audioCtx.state === 'suspended') return;
+
+        const now = audioCtx.currentTime;
+        const osc = audioCtx.createOscillator();
+        const gainNode = audioCtx.createGain();
+
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(600, now);
+        osc.frequency.setValueAtTime(800, now + 0.08);
+        osc.frequency.setValueAtTime(1200, now + 0.16);
+
+        gainNode.gain.setValueAtTime(0.01, now);
+        gainNode.gain.exponentialRampToValueAtTime(0.0001, now + 0.25);
+
+        osc.connect(gainNode);
+        gainNode.connect(audioCtx.destination);
+
+        osc.start();
+        osc.stop(now + 0.25);
+      } catch (e) {
+        // Fallback silently
+      }
+    }
+
+    // Delegated high-performance event listener for tactile hover sounds
+    document.addEventListener('mouseover', (e) => {
+      const target = e.target.closest('a, button, [role="button"], .interactive-element, .view-study-btn');
+      if (target) {
+        if (target.dataset.soundPlayed === 'true') return;
+        target.dataset.soundPlayed = 'true';
+        playClick();
+      }
+    });
+
+    document.addEventListener('mouseout', (e) => {
+      const target = e.target.closest('a, button, [role="button"], .interactive-element, .view-study-btn');
+      if (target) {
+        target.removeAttribute('data-sound-played');
+      }
+    });
+
+
+    /* ─────────────────────────────────────────────
+       3. NAVIGATION STICKY BLUR STATE
+    ───────────────────────────────────────────── */
+    const header = document.getElementById('main-header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 40) {
+        header.classList.add('bg-obsidian/85', 'backdrop-blur-xl', 'border-white/5', 'py-4');
+        header.classList.remove('py-5', 'border-transparent');
+      } else {
+        header.classList.remove('bg-obsidian/85', 'backdrop-blur-xl', 'border-white/5', 'py-4');
+        header.classList.add('py-5', 'border-transparent');
+      }
+    });
+
+
+    /* ─────────────────────────────────────────────
+       4. MOBILE DRAWER OVERLAY ANIMATIONS
+    ───────────────────────────────────────────── */
+    const burger = document.getElementById('burger-menu');
+    const drawer = document.getElementById('mobile-drawer');
+    const drawerLinks = document.querySelectorAll('.drawer-link');
+
+    function toggleDrawer() {
+      const isOpen = drawer.style.transform === 'translateY(0%)';
+      if (isOpen) {
+        drawer.style.transform = 'translateY(-100%)';
+        burger.querySelector('.burger-line-1').style.transform = 'none';
+        burger.querySelector('.burger-line-2').style.opacity = '1';
+        burger.querySelector('.burger-line-3').style.transform = 'none';
+        burger.querySelector('.burger-line-3').style.width = '1rem';
+      } else {
+        drawer.style.transform = 'translateY(0%)';
+        burger.querySelector('.burger-line-1').style.transform = 'translateY(8px) rotate(45deg)';
+        burger.querySelector('.burger-line-2').style.opacity = '0';
+        burger.querySelector('.burger-line-3').style.transform = 'translateY(-8px) rotate(-45deg)';
+        burger.querySelector('.burger-line-3').style.width = '1.5rem';
+      }
+    }
+
+    burger.addEventListener('click', toggleDrawer);
+    drawerLinks.forEach(link => link.addEventListener('click', toggleDrawer));
+
+
+    /* ─────────────────────────────────────────────
+       5. PORTFOLIO SCROLL REVEAL ENGINE
+    ───────────────────────────────────────────── */
+    const revealOptions = {
+      threshold: 0.1,
+      rootMargin: "0px 0px -50px 0px"
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, revealOptions);
+
+    document.querySelectorAll('.reveal-element').forEach(el => observer.observe(el));
+
+
+    /* ─────────────────────────────────────────────
+       6. INTERACTIVE DYNAMIC STAT COUNTER
+    ───────────────────────────────────────────── */
+    let countsStarted = false;
+    const statsObserver = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting && !countsStarted) {
+        countsStarted = true;
+        document.querySelectorAll('.cnt-number').forEach(item => {
+          const target = parseInt(item.getAttribute('data-target'), 10);
+          let count = 0;
+          const duration = 1200; // Counter pacing
+          const stepTime = Math.max(Math.floor(duration / target), 15);
+          
+          const counter = setInterval(() => {
+            count += 1;
+            item.textContent = count;
+            if (count >= target) {
+              item.textContent = target;
+              clearInterval(counter);
+            }
+          }, stepTime);
+        });
+      }
+    }, { threshold: 0.3 });
+
+    statsObserver.observe(document.getElementById('stats'));
+
+
+    /* ─────────────────────────────────────────────
+       7. DYNAMIC PORTFOLIO CATEGORY FILTER
+    ───────────────────────────────────────────── */
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => {
+          b.classList.remove('active', 'bg-accent', 'text-obsidian', 'font-bold');
+          b.classList.add('text-mutedText', 'border-white/10');
+        });
+        btn.classList.add('active', 'bg-accent', 'text-obsidian', 'font-bold');
+        btn.classList.remove('text-mutedText', 'border-white/10');
+
+        const filterCat = btn.getAttribute('data-cat');
+
+        projectCards.forEach(card => {
+          const cardCat = card.getAttribute('data-category');
+          if (filterCat === 'all' || cardCat === filterCat) {
+            card.style.display = 'block';
+            setTimeout(() => {
+              card.style.opacity = '1';
+              card.style.transform = 'scale(1)';
+            }, 50);
+          } else {
+            card.style.opacity = '0';
+            card.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+              card.style.display = 'none';
+            }, 300);
+          }
+        });
+      });
+    });
+
+
+    /* ─────────────────────────────────────────────
+       8. PROJECT PLANNER ESTIMATOR LOGIC
+    ───────────────────────────────────────────── */
+    const timeframeRange = document.getElementById('timeframe-range');
+    const sliderValue = document.getElementById('slider-value');
+    const estimatedTotal = document.getElementById('estimated-total');
+    const plannerBtns = document.querySelectorAll('.planner-system-btn');
+    const plannerSubmit = document.getElementById('planner-submit-btn');
+
+    let activeServiceCosts = 0;
+    let selectedServicesList = [];
+
+    // System Selection click handling
+    plannerBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        btn.classList.toggle('selected');
+        btn.classList.toggle('border-accent');
+        
+        const price = parseInt(btn.getAttribute('data-price'), 10);
+        const sysName = btn.getAttribute('data-sysname');
+
+        if (btn.classList.contains('selected')) {
+          activeServiceCosts += price;
+          selectedServicesList.push(sysName);
+        } else {
+          activeServiceCosts -= price;
+          selectedServicesList = selectedServicesList.filter(item => item !== sysName);
+        }
+        calculateEstimate();
+      });
+    });
+
+    // Timeframe Range interaction logic
+    timeframeRange.addEventListener('input', () => {
+      const weeks = timeframeRange.value;
+      sliderValue.textContent = `${weeks} Weeks`;
+      calculateEstimate();
+    });
+
+    function calculateEstimate() {
+      const weeks = parseInt(timeframeRange.value, 10);
+      
+      // Complexity scale factor
+      let velocityFactor = 1.0;
+      if (weeks <= 3) {
+        velocityFactor = 1.4; // Premium acceleration charge
+      } else if (weeks >= 8) {
+        velocityFactor = 0.85; // Extended timeline discount
+      }
+
+      let total = Math.round(activeServiceCosts * velocityFactor);
+      
+      // Animate counting output smoothly
+      let currentVal = parseInt(estimatedTotal.textContent, 10) || 0;
+      const step = Math.ceil(Math.abs(total - currentVal) / 12);
+      
+      const valUpdateTimer = setInterval(() => {
+        if (currentVal < total) {
+          currentVal = Math.min(currentVal + step, total);
+        } else if (currentVal > total) {
+          currentVal = Math.max(currentVal - step, total);
+        }
+        
+        estimatedTotal.textContent = currentVal.toLocaleString();
+        
+        if (currentVal === total) {
+          clearInterval(valUpdateTimer);
+        }
+      }, 20);
+    }
+
+    // Connect Planner Estimate with the Contact Message Box
+    plannerSubmit.addEventListener('click', () => {
+      if (selectedServicesList.length === 0) {
+        alert("Please highlight at least one system to build an estimate.");
+        return;
+      }
+
+      const contactSection = document.getElementById('contact');
+      const formService = document.getElementById('form-service');
+      const formMessage = document.getElementById('form-message');
+
+      formService.value = selectedServicesList.join(', ');
+      formMessage.value = `Hello Gopa,\n\nI built an estimated plan using your website's Project Planner and would like to lock it in.\n\nProject Selection: ${selectedServicesList.join(', ')}\nEstimated Timeframe: ${timeframeRange.value} Weeks\nCalculated Budget Level: $${estimatedTotal.textContent} USD\n\nLet's discuss detailed goals!`;
+
+      // Smooth scroll back down to the form
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    });
+
+
+    /* ─────────────────────────────────────────────
+       9. CASE STUDY DATABASE & OVERLAY MANAGER
+    ───────────────────────────────────────────── */
+    const caseStudies = [
+      {
+        title: "Men's Grooming E-commerce UI",
+        client: "Avenue Grooming Corp",
+        role: "UX Researcher & Lead UI Designer",
+        timeline: "6 Weeks",
+        summary: "Modern masculine e-commerce design focused on tactical minimalism, elegant contrast levels, and interactive micro-experiences built in Figma.",
+        palette: ["#050505", "#F4F3EF", "#AF9F7C", "#2A2A2F"],
+        challenge: "Traditional grooming interfaces suffer from cluttered menus and overly clinical styling. The challenge was building an editorial-level, fluid buying flow optimized for both mobile and high-resolution displays.",
+        behanceLink: "https://www.behance.net/gallery/244133067/Mens-Grooming-E-commerce-UI-Design/modules/1409256683"
+      },
+      {
+        title: "Floriaa — Luxury Jewelry Brand Identity",
+        client: "Floriaa Fine Jewelry",
+        role: "Brand Architect",
+        timeline: "8 Weeks",
+        summary: "A bespoke, serif brand mark engineered to balance contemporary luxury aesthetics with botanical references.",
+        palette: ["#111115", "#E3DCCF", "#92846D", "#3B4A3F"],
+        challenge: "The luxury jewelry market demands distinct typographic precision. I designed a customized modern logotype from scratch and built comprehensive guidelines handling packaging, visual layout, and motion logo reveals.",
+        behanceLink: "https://www.behance.net/gallery/243751775/Floriaa-Luxury-Jewelry-Brand-Identity"
+      },
+      {
+        title: "Cafe Brew Systems",
+        client: "Artisan Brew Co.",
+        role: "Graphic & Packaging Designer",
+        timeline: "4 Weeks",
+        summary: "Bold, modern typographic identity designed to disrupt grocery shelves with distinct typographic packaging systems.",
+        palette: ["#1F1D1B", "#E86E3C", "#F7ECE1", "#5C4A3C"],
+        challenge: "Developing visual impact in a crowded packaging environment. We implemented bold, grotesque type hierarchies paired with geometric label patterns to create a clear, unmistakable voice.",
+        behanceLink: "https://www.behance.net/gallery/243272337/Cafe-Brew-Brand-Identity-Design"
+      },
+      {
+        title: "2D Animation Showcase",
+        client: "Self Produced Motion Pieces",
+        role: "Motion Designer",
+        timeline: "Continuous",
+        summary: "Fluid keyframe animations exploring modern vector patterns and seamless cinematic transition curves in After Effects.",
+        palette: ["#050505", "#D4F54E", "#1D1D21", "#E6E6E6"],
+        challenge: "Translating static brand systems into dynamic cinematic expressions. This showcase covers vector graph animations, smooth camera pans, and kinetic typography sequences.",
+        behanceLink: "https://www.behance.net/gallery/194345889/2D-ANIMATION-PORTFOLIO"
+      },
+      {
+        title: "Modern Vector Series",
+        client: "Creative Explorations",
+        role: "Illustrator & Designer",
+        timeline: "3 Weeks",
+        summary: "High-contrast editorial vector artworks experimenting with organic curvature and brutalist shapes.",
+        palette: ["#0F0E17", "#FF8906", "#F2E9E1", "#3D3A4E"],
+        challenge: "Exploring vector limits in Adobe Illustrator to construct deep visual depth using only flat-shading vector blocks and highly curated color maps.",
+        behanceLink: "https://www.behance.net/gallery/243123445/Modern-Vector-Illustration-Series"
+      },
+      {
+        title: "BotX — AI Brand Identity",
+        client: "BotX Systems",
+        role: "Identity Architect",
+        timeline: "5 Weeks",
+        summary: "Calculated tech brand asset exploring mathematical lines, geometric layouts, and structural negative space.",
+        palette: ["#000000", "#00FFA3", "#121216", "#E1E5F2"],
+        challenge: "Artificial intelligence brands often fall into standard gradient shapes. The objective was creating an unmistakable monolithic emblem representing data blocks and analytical nodes.",
+        behanceLink: "https://www.behance.net/gallery/242771853/BotX-Logo"
+      }
+    ];
+
+    const modal = document.getElementById('case-study-modal');
+    const modalContainer = document.getElementById('modal-container');
+    const modalContent = document.getElementById('modal-content-area');
+    const closeModalBtn = document.getElementById('close-modal-btn');
+    const viewBtns = document.querySelectorAll('.view-study-btn');
+
+    viewBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const idx = parseInt(btn.getAttribute('data-project-idx'), 10);
+        const data = caseStudies[idx];
+
+        // Format dynamic color palette block
+        let paletteHtml = data.palette.map(color => `
+          <div class="flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full border border-white/10" style="background-color: ${color}"></span>
+            <span class="font-mono text-[9px] text-mutedText">${color}</span>
+          </div>
+        `).join('');
+
+        modalContent.innerHTML = `
+          <div>
+            <span class="font-mono text-[9px] text-accent uppercase tracking-widest">DETAILED CASE STUDY / WORK INDEX</span>
+            <h2 class="font-serif text-3xl md:text-5xl text-bone mt-2">${data.title}</h2>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-6 border-y border-white/5 py-6">
+            <div>
+              <span class="block font-mono text-[8px] text-mutedText uppercase">CLIENT PARTNER</span>
+              <span class="text-sm text-bone font-medium">${data.client}</span>
+            </div>
+            <div>
+              <span class="block font-mono text-[8px] text-mutedText uppercase">MY ASSIGNED ROLE</span>
+              <span class="text-sm text-bone font-medium">${data.role}</span>
+            </div>
+            <div>
+              <span class="block font-mono text-[8px] text-mutedText uppercase">PRODUCTION TIME</span>
+              <span class="text-sm text-bone font-medium">${data.timeline}</span>
+            </div>
+            <div>
+              <span class="block font-mono text-[8px] text-mutedText uppercase">SYSTEM PALETTE</span>
+              <div class="flex flex-wrap gap-3 mt-1">${paletteHtml}</div>
+            </div>
+          </div>
+
+          <div class="space-y-4">
+            <h4 class="font-mono text-[10px] text-accent tracking-widest uppercase">THE CONCEPTUAL BRIEF</h4>
+            <p class="text-sm text-mutedText leading-relaxed">${data.summary}</p>
+          </div>
+
+          <div class="space-y-4">
+            <h4 class="font-mono text-[10px] text-accent tracking-widest uppercase font-bold">THE CREATIVE CHALLENGE</h4>
+            <p class="text-sm text-mutedText leading-relaxed">${data.challenge}</p>
+          </div>
+
+          <div class="pt-6 flex flex-col sm:flex-row gap-4">
+            <a href="${data.behanceLink}" target="_blank" class="interactive-element flex-1 bg-accent text-obsidian hover:bg-bone hover:text-obsidian px-6 py-4 rounded-xl text-center font-mono text-xs uppercase font-bold tracking-widest transition-all duration-300 shadow-lg" data-hover-type="link">
+              Launch Live Project on Behance ↗
+            </a>
+          </div>
+        `;
+
+        // Open native modal
+        modal.showModal();
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    function closeModal() {
+      modal.close();
+      document.body.style.overflow = '';
+    }
+
+    closeModalBtn.addEventListener('click', closeModal);
+
+    // Fallback light-dismiss for browsers without native closedby support
+    if (!('closedBy' in HTMLDialogElement.prototype)) {
+      modal.addEventListener('click', (event) => {
+        if (event.target !== modal) return;
+        const rect = modal.getBoundingClientRect();
+        const isDialogContent = (
+          rect.top <= event.clientY &&
+          event.clientY <= rect.top + rect.height &&
+          rect.left <= event.clientX &&
+          event.clientX <= rect.left + rect.width
+        );
+        if (!isDialogContent) {
+          closeModal();
+        }
+      });
+    }
+
+    // Keep body scroll unlocked if dialog closed by ESC key natively
+    modal.addEventListener('close', () => {
+      document.body.style.overflow = '';
+    });
+
+
+    /* ─────────────────────────────────────────────
+       10. LIVE FORM SUBMIT INTERACTIVE REACTION
+    ───────────────────────────────────────────── */
+    function sendMsg() {
+      const submitBtn = document.getElementById('form-submit-btn');
+      const prevContent = submitBtn.innerHTML;
+
+      // Trigger success sound feedback
+      playSuccess();
+
+      submitBtn.innerHTML = `DISPATCH SUCCESS &bull; TALK SOON &checkmark;`;
+      submitBtn.classList.remove('bg-accent', 'text-obsidian');
+      submitBtn.classList.add('bg-emerald-500', 'text-bone');
+
+      setTimeout(() => {
+        submitBtn.innerHTML = prevContent;
+        submitBtn.classList.remove('bg-emerald-500', 'text-bone');
+        submitBtn.classList.add('bg-accent', 'text-obsidian');
+        
+        // Reset messaging inputs safely
+        document.getElementById('contact-form').reset();
+      }, 4000);
+    }
+  </script>
+</body>
+</html>
